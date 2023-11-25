@@ -1,0 +1,17 @@
+<p>update-foyer works!</p>
+
+<form [formGroup]="updateForm" (ngSubmit)="update()" *ngIf="updateForm">
+   <div class="form-group" >
+<label> Nom de foyer</label>
+<input type="text" class="form-control" id="nomFoyer" name="nomFoyer" formControlName="nomFoyer"> 
+
+<div>
+<label> Capacité</label>
+<input type="text" class="form-control" id="capaciteFoyer" name="capaciteFoyer" formControlName="capaciteFoyer"> 
+
+</div>
+            </div>
+            <br>
+     <button type="text" class="btn btn-primary" >Submit</button>
+ 
+</form>
