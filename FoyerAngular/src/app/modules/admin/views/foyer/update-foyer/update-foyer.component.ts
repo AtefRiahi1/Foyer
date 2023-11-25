@@ -1,9 +1,9 @@
 import { Component ,OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FoyerService } from 'src/app/core/services/foyer/foyer.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Foyer } from 'src/app/core/models/foyer/foyer';
-
+import { FoyerService } from 'src/app/core/services/foyer/foyer.service';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-update-foyer',
   templateUrl: './update-foyer.component.html',
@@ -17,7 +17,8 @@ export class UpdateFoyerComponent implements OnInit {
     private avtR: ActivatedRoute,
     private foyerS: FoyerService,
     private router: Router,
-    private FormB: FormBuilder
+    private FormB: FormBuilder,
+    private location: Location
   ) {}
 
   updateForm: FormGroup = this.FormB.group({
@@ -56,4 +57,10 @@ export class UpdateFoyerComponent implements OnInit {
       this.router.navigate(['/admin/foyer']);
     });
   }
+  isClicked: boolean = false;
+  goBack(): void {
+    this.location.back();
+    this.isClicked = true;
+  }
+
 }

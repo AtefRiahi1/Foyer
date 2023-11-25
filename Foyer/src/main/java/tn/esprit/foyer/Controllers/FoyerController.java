@@ -37,6 +37,7 @@ public class FoyerController {
         return foyerService.getAllFoyers();
     }
 
+
     @GetMapping("/{idFoyer}")
     public Foyer getFoyerById(@PathVariable Long idFoyer) {
         return foyerService.getFoyerById(idFoyer);

@@ -2,10 +2,7 @@ package tn.esprit.foyer.Services.Imp;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import tn.esprit.foyer.Entities.Bloc;
 import tn.esprit.foyer.Entities.Foyer;
-import tn.esprit.foyer.Entities.Universite;
 import tn.esprit.foyer.Repositories.*;
 import tn.esprit.foyer.Services.IFoyerServices;
 
@@ -49,8 +46,15 @@ public class IFoyerServicesImp implements IFoyerServices {
         return foyerRepository.findById(idFoyer).orElseThrow(()->new IllegalArgumentException("Ce foyer n'existe pas"));
     }
 
+
+
     @Override
     public void deleteFoyer(Long idFoyer) {
         foyerRepository.deleteById(idFoyer);
+    }
+
+    @Override
+    public Foyer findFoyerBynomUniversite(String nomU){
+        return foyerRepository.findFoyerBynomUniversite(nomU);
     }
 }

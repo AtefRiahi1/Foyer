@@ -13,4 +13,6 @@ public interface IFoyerServices {
     List<Foyer> getAllFoyers();
     Foyer getFoyerById(Long idFoyer);
     void deleteFoyer(Long idFoyer);
+
+    Foyer findFoyerBynomUniversite(String nomU);
 }
