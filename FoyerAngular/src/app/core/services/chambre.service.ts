@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Chambre } from '../../models/chambre/chambre';
-import { TypeChambre } from '../../models/TypeChambre/type-chambre.enum';
+import { Chambre } from 'src/app/core/models/chambre/chambre';
+import { TypeChambre } from 'src/app/core/models/TypeChambre/type-chambre.enum';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -31,3 +31,4 @@ export class ChambreService {
     return this.http.get<Chambre[]>(`${environment.baseUrl}/chambre/${idBloc}/${typeC}`);
   }
 }
+
