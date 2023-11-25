@@ -13,8 +13,9 @@
               <input
                 type="text"
                 class="form-control"
-                placeholder="Rechercher par catégorie"
+                placeholder="Rechercher Prenom"
                 name="search"
+                [(ngModel)]="search"
               />
             </div>
           </form>
@@ -34,7 +35,7 @@
               </tr>
               </thead>
               <tbody *ngFor="let etudiant of list">
-              <tr>
+              <tr *ngIf="etudiant.prenom === search || !search">
                 <td>
                   <img src="http://localhost:9090/auth/{{etudiant.image}}"  alt="" style="height: 50px">
                 </td>
@@ -51,7 +52,7 @@
                           <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
                         </span>
                   </a>
-                  <a  class="table-link" [routerLink]="['updateEtudiant',etudiant.id]"> <!--[routerLink]="['editUser',item.id]"-->
+                  <a  class="table-link" [routerLink]="['/admin/updateEtudiant',etudiant.id]"> <!--[routerLink]="['editUser',item.id]"-->
                     <span class="fa-stack">
                           <i class="fa fa-square fa-stack-2x"></i>
                           <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>

@@ -1,1 +1,85 @@
-<p>add-etudiant works!</p>
+
+
+              <!-- Form START -->
+              <h1 style="margin: 50px;text-align: center">Ajouter un etudiant</h1>
+              <form style="width: 800px;margin-left: 150px;margin-bottom: 50px" [formGroup]="registerForm" (ngSubmit)="register()">
+                <!-- Nom -->
+                <div class="mb-4">
+                  <label for="exampleInputNom" class="form-label">Nom *</label>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-user-graduate"></i></span>
+                    <input type="text" class="form-control border-0 bg-light rounded-end ps-1" placeholder="Nom" id="exampleInputNom" formControlName="nom">
+                  </div>
+                  <small class="text text-danger" *ngIf="registerForm.controls['nom'].invalid && registerForm.controls['nom'].touched">Minimum 3 lettres</small>
+                </div>
+                <!-- Prénom -->
+                <div class="mb-4">
+                  <label for="exampleInputPrenom" class="form-label">Prénom *</label>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-user-graduate"></i></span>
+                    <input type="text" class="form-control border-0 bg-light rounded-end ps-1" placeholder="Prénom" id="exampleInputPrenom" formControlName="prenom">
+                  </div>
+                  <small class="text text-danger" *ngIf="registerForm.controls['prenom'].invalid && registerForm.controls['prenom'].touched">Minimum 3 lettres</small>
+                </div>
+                <!-- Cin -->
+                <div class="mb-4">
+                  <label for="exampleInputCin" class="form-label">Carte d'identité nationale *</label>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-address-card"></i></span>
+                    <input type="number" class="form-control border-0 bg-light rounded-end ps-1" placeholder="Carte d'identité nationale" id="exampleInputCin" formControlName="cin">
+                  </div>
+                  <span class="text text-danger" *ngIf="registerForm.controls['cin'].invalid && registerForm.controls['cin'].touched">8 nombres</span>
+                </div>
+                <!-- DateNaissance -->
+                <div class="mb-4">
+                  <label for="exampleInputDateNaissance" class="form-label">Date de naissance *</label>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-calendar-alt"></i></span>
+                    <input type="date" class="form-control border-0 bg-light rounded-end ps-1" placeholder="Date de naissance" id="exampleInputDateNaissance" formControlName="dateNaissance">
+                  </div>
+                  <span class="text text-danger" *ngIf="registerForm.controls['dateNaissance'].invalid && registerForm.controls['dateNaissance'].touched">Date de naissance est obligatoire</span>
+                </div>
+                <!-- Image -->
+                <div class="mb-4">
+                  <label for="exampleInputImage" class="form-label">Photo de profil *</label>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-file-image"></i></span>
+                    <input type="file"  class="form-control border-0 bg-light rounded-end ps-1" required name="exampleInputImage" id="exampleInputImage" [(ngModel)]="image" (change)="onUploadImg($event)">
+                  </div>
+                </div>
+                <!-- Ecole -->
+                <div class="mb-4">
+                  <label for="exampleInputEcole" class="form-label">École *</label>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-school"></i></span>
+                    <input type="text" class="form-control border-0 bg-light rounded-end ps-1" placeholder="École" id="exampleInputEcole" formControlName="ecole">
+                  </div>
+                  <span class="text text-danger" *ngIf="registerForm.controls['ecole'].invalid && registerForm.controls['ecole'].touched">Minimum 3 lettres</span>
+                </div>
+                <!-- Email -->
+                <div class="mb-4">
+                  <label for="exampleInputEmail1" class="form-label">Adresse e-mail *</label>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
+                    <input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1" formControlName="email">
+                  </div>
+                  <span class="text text-danger" *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched">Probléme de format</span>
+                </div>
+                <!-- Password -->
+                <div class="mb-4">
+                  <label for="inputPassword5" class="form-label">Mot de passe *</label>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-lock"></i></span>
+                    <input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="*********" id="inputPassword5" formControlName="password">
+                    <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3" onclick="Changer()"><i class="far fa-eye cursor-pointer p-2 w-40px"></i></span>
+                  </div>
+                  <span class="text text-danger" *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">Minimum 6 caractéres</span>
+                </div>
+                <!-- Button -->
+                <div class="align-items-center mt-0">
+                  <div class="d-grid">
+                    <button class="btn btn-primary mb-0" type="submit">Ajouter</button>
+                  </div>
+                </div>
+              </form>
+              <!-- Form END -->
