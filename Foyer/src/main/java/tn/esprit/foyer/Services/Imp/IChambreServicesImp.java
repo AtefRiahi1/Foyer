@@ -42,4 +42,10 @@ public class IChambreServicesImp implements IChambreServices {
         return chambreRepository.getChambresParBlocEtType(idBloc, typeC);  //Solution 1
     }
 
+    @Override
+    public void deleteChambre(Long idChambre) {
+        chambreRepository.deleteById(idChambre);
+    }
+
+
 }

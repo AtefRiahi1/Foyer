@@ -42,4 +42,8 @@ public class ChambreController {
     public List<Chambre> getChambresParBlocEtType(@PathVariable Long idBloc, @PathVariable TypeChambre typeC) {
         return chambreService.getChambresParBlocEtType(idBloc, typeC);
     }
+    @DeleteMapping("/{idChambre}")
+    public void deleteChambre(@PathVariable Long idChambre) {
+        chambreService.deleteChambre(idChambre);
+    }
 }

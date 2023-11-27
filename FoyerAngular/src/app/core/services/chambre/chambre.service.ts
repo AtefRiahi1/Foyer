@@ -30,5 +30,8 @@ export class ChambreService {
   getChambresParBlocEtType(idBloc: number, typeC: TypeChambre) {
     return this.http.get<Chambre[]>(`${environment.baseUrl}/chambre/${idBloc}/${typeC}`);
   }
+  deleteChambre(idChambre: number) {
+    return this.http.delete(`${environment.baseUrl}/chambre/${idChambre}`);
+  }
 }
 
