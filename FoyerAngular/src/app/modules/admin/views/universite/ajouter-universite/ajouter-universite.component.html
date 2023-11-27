@@ -1,0 +1,147 @@
+<section
+  class="p-0 d-flex align-items-center position-relative overflow-hidden"
+>
+  <div class="container-fluid">
+    <!-- <div [class.circle-icon]="isClicked" class="position-absolute top-0 end-0 p-2" (click)="goBack()">
+          <style>
+            .circle-icon {
+              border-radius: 50%;
+              width: 40px; /* Ajustez la taille du cercle selon vos besoins */
+              height: 40px;
+              background-color: #fff; /* Couleur de fond du cercle */
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Ombre légère pour un effet de levée */
+            }
+          </style>
+          <div class="circle-icon">
+            <i class="bi bi-arrow-left"></i>
+          </div>
+        </div> -->
+    <div class="row">
+      <div class="col-12 col-lg-6 m-auto">
+        <div class="row my-5">
+          <div class="col-sm-10 col-xl-8 m-auto">
+            <form
+              [formGroup]="addForm"
+              (ngSubmit)="addUniversite()"
+              *ngIf="addForm"
+            >
+              <!-- Nom -->
+              <div class="mb-4">
+                <label for="exampleInputNom" class="form-label"
+                  >Nom Universite</label
+                >
+                <div class="input-group input-group-lg">
+                  <!-- ... -->
+                  <span
+                    class="input-group-text bg-light rounded-start border-0 text-secondary px-3"
+                    ><i class="fa fa-university"></i
+                  ></span>
+                  <input
+                    type="text"
+                    class="form-control border-0 bg-light rounded-end ps-1"
+                    placeholder="Nom Universite"
+                    id="exampleInputNom"
+                    formControlName="nomUniversite"
+                  />
+                </div>
+                <!-- Affichage du message d'erreur -->
+                <div
+                  *ngIf="
+                    addForm.controls.nomUniversite.invalid &&
+                    (addForm.controls.nomUniversite.dirty ||
+                      addForm.controls.nomUniversite.touched)
+                  "
+                  class="text-danger"
+                >
+                  <div
+                    *ngIf="addForm.controls.nomUniversite.errors?.['required']"
+                  >
+                    Le nom de l'université est requis.
+                  </div>
+                  <div
+                    *ngIf="addForm.controls.nomUniversite.errors?.['minlength']"
+                  >
+                    Le nom de l'université doit avoir au moins 3 caractères.
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <label for="exampleInputNom" class="form-label">Adresse</label>
+                <div class="input-group input-group-lg">
+                  <!-- ... -->
+                  <span
+                    class="input-group-text bg-light rounded-start border-0 text-secondary px-3"
+                    ><i class="fa fa-map-marker"></i
+                  ></span>
+                  <input
+                    type="text"
+                    class="form-control border-0 bg-light rounded-end ps-1"
+                    placeholder="Adresse"
+                    id="exampleInputNom"
+                    formControlName="adresse"
+                  />
+                </div>
+                <!-- Affichage du message d'erreur -->
+                <div
+                  *ngIf="
+                    addForm.controls.adresse.invalid &&
+                    (addForm.controls.adresse.dirty ||
+                      addForm.controls.adresse.touched)
+                  "
+                  class="text-danger"
+                >
+                  <div *ngIf="addForm.controls.adresse.errors?.['required']">
+                    L'adresse' est requis.
+                  </div>
+                  <div *ngIf="addForm.controls.adresse.errors?.['minlength']">
+                    L'adresse' doit avoir au moins 3 caractères.
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="mb-4">
+                    <label for="exampleInputNom" class="form-label">Nom Universite</label>
+                    <div class="input-group input-group-lg">
+                      <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-home"></i></span>
+                      <input type="text" class="form-control id= border-0 bg-light rounded-end ps-1" placeholder="Nom Universite" id="exampleInputNom" formControlName="nomUniversite">
+                   
+                    </div>
+                   
+                  </div> -->
+
+              <!-- Capacité -->
+              <!-- <div class="mb-4">
+                    <label for="exampleInputCin" class="form-label">Adresse</label>
+                    <div class="input-group input-group-lg">
+                      <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-home"></i></span>
+                      <input type="text" class="form-control border-0 bg-light rounded-end ps-1" placeholder="Adresse" id="exampleInputNom" formControlName="adresse">
+                
+                    </div>
+                    
+                  </div> -->
+
+              <!-- Button -->
+              <div class="align-items-center mt-0">
+                <div class="d-grid">
+                  <button
+                    class="btn btn-primary mb-0"
+                    type="submit"
+                    [disabled]="!addForm.valid"
+                  >
+                    Ajouter
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<router-outlet></router-outlet>

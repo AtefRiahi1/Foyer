@@ -5,5 +5,5 @@ import tn.esprit.foyer.Entities.Universite;
 
 
 public interface IUniversiteRepository extends JpaRepository<Universite, Long>  {
-    Universite findByNomUniversite(String nomUniversite);
+    Universite findByNomUniversiteContainingIgnoreCase(String nomUniversite);
 }

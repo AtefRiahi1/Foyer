@@ -31,6 +31,11 @@ public class UniversiteController {
         return universiteService.getAllUniversites();
     }
 
+
+    @GetMapping("/nom/{nomUniversite}")
+    public Universite getUniversiteByNom(@PathVariable String nomUniversite){
+        return  universiteService.getUniversiteByNom(nomUniversite);
+    }
     @GetMapping("/{idUniversite}")
     public Universite getUniversiteById(@PathVariable Long idUniversite) {
         return universiteService.getUniversiteById(idUniversite);
@@ -45,5 +50,12 @@ public class UniversiteController {
     @PutMapping("/{idUniversite}")
     public Universite desaffecterFoyerAUniversite(@PathVariable Long idUniversite) {
         return universiteService.desaffecterFoyerAUniversite(idUniversite);
+    }
+
+
+
+    @DeleteMapping("{idUniveriste}")
+    public  void deleteUniversite(@PathVariable long idUniveriste){
+        universiteService.deleteUniversite(idUniveriste);
     }
 }
