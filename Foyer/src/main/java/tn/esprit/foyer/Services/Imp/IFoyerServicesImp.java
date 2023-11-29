@@ -54,7 +54,7 @@ public class IFoyerServicesImp implements IFoyerServices {
     }
 
     @Override
-    public Foyer findFoyerBynomUniversite(String nomU){
-        return foyerRepository.findFoyerBynomUniversite(nomU);
+    public Foyer findFoyerByidUniversite(long idU){
+        return foyerRepository.findFoyerBynomUniversite(idU);
     }
 }

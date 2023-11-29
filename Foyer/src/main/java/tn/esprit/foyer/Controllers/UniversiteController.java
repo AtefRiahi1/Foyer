@@ -38,9 +38,9 @@ public class UniversiteController {
     public Universite getUniversiteById(@PathVariable Long idUniversite) {
         return universiteService.getUniversiteById(idUniversite);
     }
-    @GetMapping("/allfoyer/{nomU}")
-    public Foyer getFoyerById(@PathVariable String nomU) {
-        return foyerService.findFoyerBynomUniversite(nomU);
+    @GetMapping("/allfoyer/{idU}")
+    public Foyer getFoyerById(@PathVariable long idU) {
+        return foyerService.findFoyerByidUniversite(idU);
     }
 
     @PutMapping("/{idFoyer}/{nomUniversite}")

@@ -17,6 +17,7 @@ export class FoyerService {
     
     return this.http.get<Foyer[]>(`${environment.baseUrl}/foyer`);
   }
+  
   getFoyerById(idFoyer:number): Observable<Foyer> {
     return this.http.get<Foyer>(`${environment.baseUrl}/foyer/${idFoyer}`);
   }
