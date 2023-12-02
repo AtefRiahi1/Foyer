@@ -11,7 +11,6 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor /*constructeur param*/
 @ToString
-
 public class Universite implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +18,6 @@ public class Universite implements Serializable {
     private String nomUniversite;
     private String adresse;
     @JsonIgnore
-    @OneToOne
+    @OneToOne(fetch=FetchType.EAGER)
     private Foyer foyer;
 }
