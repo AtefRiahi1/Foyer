@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
+import {Etudiant} from "../../../../core/models/etudiant/etudiant";
 import {HttpEventType} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
-import {AuthenticationService} from "../../../../../core/services/authentication/authentication.service";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {EtudiantService} from "../../../../../core/services/etudiant/etudiant.service";
-import {Etudiant} from "../../../../../core/models/etudiant/etudiant";
+import {FormBuilder, Validators} from "@angular/forms";
+import {AuthenticationService} from "../../../../core/services/authentication/authentication.service";
+import {EtudiantService} from "../../../../core/services/etudiant/etudiant.service";
 import Swal from "sweetalert2";
-import {Role} from "../../../../../core/models/Role/role.enum";
 
 @Component({
-  selector: 'app-update-etudiant',
-  templateUrl: './update-etudiant.component.html',
-  styleUrls: ['./update-etudiant.component.css']
+  selector: 'app-etudiant-edit',
+  templateUrl: './etudiant-edit.component.html',
+  styleUrls: ['./etudiant-edit.component.css']
 })
-export class UpdateEtudiantComponent {
+export class EtudiantEditComponent {
   image: string ="";
   id!:number;
   etudiant!:Etudiant;
@@ -60,7 +59,6 @@ export class UpdateEtudiantComponent {
     //this.id=Number(this.actR.snapshot.paramMap.get('id'));
     this.actR.paramMap.subscribe(data=>this.id=Number(data.get('id')));
   }
-
   ngOnInit() {
     this.getParam()
     this.etudiantservice.getEtudiantById(this.id).subscribe((data)=>{this.etudiant=data;
@@ -75,10 +73,10 @@ export class UpdateEtudiantComponent {
           email: this.etudiant.email,
         }
       );
-});
+    });
   }
-  update(){
-    const updatedEtudiant:Etudiant={
+  update() {
+    const updatedEtudiant: Etudiant = {
       id: this.id,
       nom: <string>this.updateForm.value.nom,
       prenom: <string>this.updateForm.value.prenom,
@@ -88,16 +86,32 @@ export class UpdateEtudiantComponent {
       ecole: <string>this.updateForm.value.ecole,
       email: <string>this.updateForm.value.email,
       password: this.etudiant.password,
-      role:this.etudiant.role
+      role: this.etudiant.role
     }
-    this.etudiantservice.updateEtudiant(updatedEtudiant).subscribe(() => {
+
+    this.etudiantservice.updateEtudiant(updatedEtudiant).subscribe(
+      () => {
+        // Mise à jour réussie, actualisez les données dans le localStorage
+        const userConnect = JSON.parse(localStorage.getItem("userconnect")!);
+        userConnect.nom = updatedEtudiant.nom;
+        userConnect.prenom = updatedEtudiant.prenom;
+        userConnect.cin = updatedEtudiant.cin;
+        userConnect.dateNaissance = updatedEtudiant.dateNaissance;
+        userConnect.image = this.image;
+        userConnect.ecole = updatedEtudiant.ecole;
+        userConnect.email = updatedEtudiant.email;
+
+        // Mettez à jour le localStorage avec les nouvelles données
+        localStorage.setItem("userconnect", JSON.stringify(userConnect));
+
         Swal.fire({
           icon: 'success',
-          title: 'Etudiant modifié',
+          title: 'Vos données sont modifiées',
           showConfirmButton: false,
           timer: 1500
         });
-        this.router.navigate(['/admin/etudiants']);
+
+        this.router.navigate(['/etudiant/etudiantcontrol']);
       },
       () => {
         Swal.fire({
@@ -106,6 +120,8 @@ export class UpdateEtudiantComponent {
           text: 'Une erreur est survenue lors de la modification',
           footer: 'Veuillez réessayer'
         });
-      });
+      }
+    );
   }
+
 }

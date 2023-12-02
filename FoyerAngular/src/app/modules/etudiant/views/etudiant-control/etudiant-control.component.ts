@@ -1,43 +1,25 @@
 import { Component } from '@angular/core';
-import {EtudiantService} from "../../../../../core/services/etudiant/etudiant.service";
-import {Router} from "@angular/router";
-import {Etudiant} from "../../../../../core/models/etudiant/etudiant";
 import Swal from "sweetalert2";
+import {Router} from "@angular/router";
+import {EtudiantService} from "../../../../core/services/etudiant/etudiant.service";
 
 @Component({
-  selector: 'app-list-etudiant',
-  templateUrl: './list-etudiant.component.html',
-  styleUrls: ['./list-etudiant.component.css']
+  selector: 'app-etudiant-control',
+  templateUrl: './etudiant-control.component.html',
+  styleUrls: ['./etudiant-control.component.css']
 })
-export class ListEtudiantComponent {
-  list:Etudiant[]=[];
-  search!:string;
+export class EtudiantControlComponent {
+
+  loadScript(src: string) {
+    const script = document.createElement('script');
+    script.src = src;
+    script.async = true;
+    document.head.appendChild(script);
+  }
   constructor(private router:Router,private etudiantservice:EtudiantService) {
   }
 
-  ngOnInit(){
-    this.etudiantservice.getAllEtudiants().subscribe({
-      next: (data) => {
-        if (data.length == 0) {
-          Swal.fire({
-            icon: 'warning',
-            title: 'Oops...',
-            text: 'Accun etudiant trouvé',
-          });
-        } else {
-          console.log(data);
-          this.list = data;
-        }
-      },
-      error: () => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Quelque chose s\'est mal passé!',
-        });
-      },
-    });
-  }
+  userconnect = JSON.parse(localStorage.getItem("userconnect")!);
 
   delete(id: number) {
     Swal.fire({
@@ -57,7 +39,7 @@ export class ListEtudiantComponent {
               text: "L'etudiant a été supprimé.",
               icon: 'success',
             });
-            this.router.navigate(["/admin/etudiants"]);
+            this.router.navigate(["/home"]);
           },
           error: (error) => {
             Swal.fire({
@@ -70,5 +52,4 @@ export class ListEtudiantComponent {
       }
     });
   }
-
 }
