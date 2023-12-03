@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {  ActivatedRoute, Router } from '@angular/router';
-import { number } from 'prop-types';
 import { Foyer } from 'src/app/core/models/foyer/foyer';
 import { FoyerService } from 'src/app/core/services/foyer/foyer.service';
 
