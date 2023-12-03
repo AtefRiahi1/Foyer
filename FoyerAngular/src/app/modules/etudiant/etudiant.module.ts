@@ -8,6 +8,10 @@ import { EtudiantControlComponent } from './views/etudiant/etudiant-control/etud
 import { EtudiantEditComponent } from './views/etudiant/etudiant-edit/etudiant-edit.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ListFoyerComponent } from './views/foyer/list-foyer/list-foyer.component';
+import { ListReservationComponent } from './views/reservation/list-reservation/list-reservation.component';
+import { AddReservationComponent } from './views/reservation/add-reservation/add-reservation.component';
+import { UpdateReservationComponent } from './views/reservation/update-reservation/update-reservation.component';
+import { DeleteReservationComponent } from './views/reservation/delete-reservation/delete-reservation.component';
 
 
 @NgModule({
@@ -16,7 +20,11 @@ import { ListFoyerComponent } from './views/foyer/list-foyer/list-foyer.componen
     EtudiantProfileComponent,
     EtudiantControlComponent,
     EtudiantEditComponent,
-    ListFoyerComponent
+    ListFoyerComponent,
+    ListReservationComponent,
+    AddReservationComponent,
+    UpdateReservationComponent,
+    DeleteReservationComponent
   ],
   imports: [
     CommonModule,

@@ -9,6 +9,11 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ListFoyerComponent } from './views/foyer/list-foyer/list-foyer.component';
 import { AddFoyerComponent } from './views/foyer/add-foyer/add-foyer.component';
 import { UpdateFoyerComponent } from './views/foyer/update-foyer/update-foyer.component';
+import { ListReservationComponent } from './views/reservation/list-reservation/list-reservation.component';
+import { AddReservationComponent } from './views/reservation/add-reservation/add-reservation.component';
+import { UpdateReservationComponent } from './views/reservation/update-reservation/update-reservation.component';
+import { DeleteReservationComponent } from './views/reservation/delete-reservation/delete-reservation.component';
+import { StatReservationComponent } from './views/reservation/stat-reservation/stat-reservation.component';
 
 
 @NgModule({
@@ -19,7 +24,12 @@ import { UpdateFoyerComponent } from './views/foyer/update-foyer/update-foyer.co
     ListEtudiantComponent,
     ListFoyerComponent,
     AddFoyerComponent,
-    UpdateFoyerComponent
+    UpdateFoyerComponent,
+    ListReservationComponent,
+    AddReservationComponent,
+    UpdateReservationComponent,
+    DeleteReservationComponent,
+    StatReservationComponent
   ],
   imports: [
     CommonModule,

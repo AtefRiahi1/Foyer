@@ -1,11 +1,11 @@
 package tn.esprit.foyer.Services.Imp;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import tn.esprit.foyer.Entities.Chambre;
-import tn.esprit.foyer.Entities.TypeChambre;
 import tn.esprit.foyer.Entities.Etudiant;
 import tn.esprit.foyer.Entities.Reservation;
 import tn.esprit.foyer.Repositories.*;
@@ -14,9 +14,7 @@ import tn.esprit.foyer.Services.IReservationServices;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -102,5 +100,37 @@ public class IReservationServicesImp implements IReservationServices {
 
         // Sauvegarder les modifications
         return reservationRepository.save(reservation);
+    }
+
+    @Override
+    public Reservation getCurrentReservationByEtudiantId(Long idEtudiant) {
+        LocalDate currentDate = LocalDate.now();
+        return reservationRepository.getCurrentReservationByEtudiantId(idEtudiant, currentDate);
+    }
+
+    @Transactional
+    @Scheduled(cron = "0 0 0 2 6 *") // À minuit, le 2 juin de chaque année
+    public void annulerToutesLesReservationsAutomatiquement() {
+        List<Reservation> reservationsValides = reservationRepository.findAllByEstValide(true);
+
+        for (Reservation reservation : reservationsValides) {
+            reservation.setEstValide(false); // Marquer la réservation comme invalide
+
+            // Désaffecter les étudiants de la réservation
+            for (Etudiant etudiant : reservation.getEtudiants()) {
+                etudiant.getReservations().remove(reservation);
+            }
+            reservation.getEtudiants().clear();
+
+            // Désaffecter la chambre associée et mettre à jour sa capacité
+            Chambre chambreAssociee = chambreRepository.findByReservationsContains(reservation);
+            if (chambreAssociee != null) {
+                chambreAssociee.getReservations().remove(reservation);
+                chambreRepository.save(chambreAssociee);
+            }
+
+            // Sauvegarder la réservation modifiée
+            reservationRepository.save(reservation);
+        }
     }
 }

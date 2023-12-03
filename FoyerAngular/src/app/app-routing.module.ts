@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'signup', component: SignUpComponent },
   { path: 'admin', canActivate:[AuthGuard , AuthAdminGuard], loadChildren:()=>import('./modules/admin/admin.module').then(x => x.AdminModule) },
   { path: 'etudiant', canActivate:[AuthGuard , AuthEtudiantGuard], loadChildren:()=>import('./modules/etudiant/etudiant.module').then(x => x.EtudiantModule) },
-  { path: '**', component:Error404Component }
+  { path: '**', component:Error404Component },
+
 ];
 
 @NgModule({
