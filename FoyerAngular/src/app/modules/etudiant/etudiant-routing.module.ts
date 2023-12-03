@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {EtudiantLayoutComponent} from "./layout/etudiant-layout.component";
-import {EtudiantProfileComponent} from "./views/etudiant-profile/etudiant-profile.component";
-import {EtudiantControlComponent} from "./views/etudiant-control/etudiant-control.component";
-import {EtudiantEditComponent} from "./views/etudiant-edit/etudiant-edit.component";
+import {EtudiantProfileComponent} from "./views/etudiant/etudiant-profile/etudiant-profile.component";
+import {EtudiantControlComponent} from "./views/etudiant/etudiant-control/etudiant-control.component";
+import {EtudiantEditComponent} from "./views/etudiant/etudiant-edit/etudiant-edit.component";
 
 const routes: Routes = [
   { path: '', component: EtudiantLayoutComponent, children:[

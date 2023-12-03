@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import Swal from "sweetalert2";
 import {Router} from "@angular/router";
-import {EtudiantService} from "../../../../core/services/etudiant/etudiant.service";
+import {EtudiantService} from "../../../../../core/services/etudiant/etudiant.service";
 
 @Component({
   selector: 'app-etudiant-control',

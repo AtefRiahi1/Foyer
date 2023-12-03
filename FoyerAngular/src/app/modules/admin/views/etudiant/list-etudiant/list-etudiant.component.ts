@@ -57,6 +57,7 @@ export class ListEtudiantComponent {
               text: "L'etudiant a été supprimé.",
               icon: 'success',
             });
+            location.reload();
             this.router.navigate(["/admin/etudiants"]);
           },
           error: (error) => {

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import {Etudiant} from "../../../../core/models/etudiant/etudiant";
+import {Etudiant} from "../../../../../core/models/etudiant/etudiant";
 import {HttpEventType} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, Validators} from "@angular/forms";
-import {AuthenticationService} from "../../../../core/services/authentication/authentication.service";
-import {EtudiantService} from "../../../../core/services/etudiant/etudiant.service";
+import {AuthenticationService} from "../../../../../core/services/authentication/authentication.service";
+import {EtudiantService} from "../../../../../core/services/etudiant/etudiant.service";
 import Swal from "sweetalert2";
 
 @Component({
@@ -110,8 +110,9 @@ export class EtudiantEditComponent {
           showConfirmButton: false,
           timer: 1500
         });
-
+        location.reload();
         this.router.navigate(['/etudiant/etudiantcontrol']);
+
       },
       () => {
         Swal.fire({

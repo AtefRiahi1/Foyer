@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Etudiant} from "../../../../core/models/etudiant/etudiant";
+import {Etudiant} from "../../../../../core/models/etudiant/etudiant";
 
 @Component({
   selector: 'app-etudiant-profile',
