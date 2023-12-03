@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <!-- Loop through each university in the list -->
+    <div
+      class="col-md-4"
+      *ngFor="let university of listUniversite; let i = index"
+    >
+      <div class="card" style="width: 15rem; margin-bottom: 20px">
+        <img
+          src="https://www.ilboursa.com/handlers/image_news_get.ashx?id=60D271D7-232E-4FC6-8CF4-EBE320A32325"
+          class="card-img-top"
+          alt="University Image"
+        />
+        <div class="card-body">
+          <h5 class="card-title">
+            Nom de l'Université: {{ university.nomUniversite }}
+          </h5>
+          <p class="card-text">Adresse: {{ university.adresse }}</p>
+          <button>foyrer</button>
+          <!-- Add ffecteryour buttons here if needed -->
+        </div>
+      </div>
+      <!-- Add a clearfix div to clear the float after every third card -->
+      <div *ngIf="(i + 1) % 3 === 0" class="w-100 d-none d-md-block"></div>
+    </div>
+  </div>
+</div>

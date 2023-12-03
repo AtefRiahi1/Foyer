@@ -1,6 +1,8 @@
 package tn.esprit.foyer.Services.Imp;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import tn.esprit.foyer.Entities.Bloc;
 import tn.esprit.foyer.Entities.Chambre;
@@ -11,6 +13,8 @@ import tn.esprit.foyer.Services.IBlocServices;
 import java.util.List;
 
 @Service
+
+@Slf4j
 @RequiredArgsConstructor
 public class IBlocServicesImp implements IBlocServices {
 
@@ -63,5 +67,19 @@ public class IBlocServicesImp implements IBlocServices {
         bloc.setFoyer(foyer);
         blocRepository.save(bloc);
         return bloc;
+    }
+
+    @Override
+    @Scheduled(fixedRate = 60000)
+    public void testschedulure() {
+//       log.info("salem skon");
+       List<Bloc> blocs = blocRepository.findAll();
+
+
+       for(Bloc bloc: blocs){
+           log.info(String.valueOf((chambreRepository.findChambreByBloc(bloc).size())));
+       }
+
+
     }
 }

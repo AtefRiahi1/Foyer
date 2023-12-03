@@ -47,6 +47,7 @@ export class UpdateUniversiteComponent implements OnInit {
         idUniversite: this.universite.idUniversite,
         nomUniversite: this.universite.nomUniversite,
         adresse: this.universite.adresse,
+        
       });
     });
   }
@@ -56,6 +57,7 @@ export class UpdateUniversiteComponent implements OnInit {
       idUniversite: this.updateForm.value.idUniversite,
       nomUniversite: this.updateForm.value.nomUniversite,
       adresse: this.updateForm.value.adresse,
+    
     };
 
     this.universiteS.updateuniversite(updatedUniversite).subscribe(() => {

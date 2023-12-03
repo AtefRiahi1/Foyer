@@ -2,6 +2,7 @@ package tn.esprit.foyer.Repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import tn.esprit.foyer.Entities.Bloc;
 import tn.esprit.foyer.Entities.Chambre;
 import tn.esprit.foyer.Entities.TypeChambre;
 import tn.esprit.foyer.Entities.Reservation;
@@ -19,4 +20,6 @@ public interface IChambreRepository extends JpaRepository<Chambre, Long>  {
     Chambre findChambreByNumeroChambre(Long numchambre);
 
     Chambre findByReservationsContains(Reservation reservation);
+
+    List<Chambre> findChambreByBloc(Bloc bloc);
 }

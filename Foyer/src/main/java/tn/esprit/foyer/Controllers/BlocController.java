@@ -1,17 +1,20 @@
 package tn.esprit.foyer.Controllers;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.foyer.Entities.Bloc;
 import tn.esprit.foyer.Services.IBlocServices;
 
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
 @RequestMapping("/bloc")
 @RequiredArgsConstructor
 @CrossOrigin("*")
+@Slf4j
 public class BlocController {
 
     private final IBlocServices blocService;
@@ -49,5 +52,11 @@ public class BlocController {
     @PostMapping("/{idBloc}/{idFoyer}")
     public Bloc affecterBlocAFoyer(@PathVariable Long idBloc, @PathVariable Long idFoyer) {
         return blocService.affecterBlocAFoyer(idBloc, idFoyer);
+    }
+
+    @GetMapping("date/{date}")
+    public void dateTest(@PathVariable LocalDate date){
+        log.info(String.valueOf(date));
+
     }
 }

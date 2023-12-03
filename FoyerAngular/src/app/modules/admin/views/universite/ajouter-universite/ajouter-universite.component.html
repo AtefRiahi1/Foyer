@@ -67,6 +67,9 @@
                   >
                     Le nom de l'université doit avoir au moins 3 caractères.
                   </div>
+                  <div *ngIf="addForm.get('nomUniversite')?.hasError('duplicateName')" class="text-danger">
+                    Le nom de l'université existe déjà.
+                  </div>
                 </div>
               </div>
 
