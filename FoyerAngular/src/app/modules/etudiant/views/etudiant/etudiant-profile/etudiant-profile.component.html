@@ -1,0 +1,18 @@
+<!-- details-utilisateur.component.html -->
+
+<div class="details-utilisateur">
+  <h2>À propos de vous</h2>
+
+  <div class="info-utilisateur">
+    <p><strong>Nom:</strong> {{ etudiant.nom }}</p>
+    <p><strong>Prénom:</strong> {{ etudiant.prenom }}</p>
+    <p><strong>Email:</strong> {{ etudiant.email }}</p>
+    <p><strong>Rôle:</strong> {{ etudiant.role }}</p>
+
+
+    <p><strong>CIN:</strong> {{etudiant.cin }}</p>
+    <p><strong>École:</strong> {{ etudiant.ecole }}</p>
+    <p><strong>Date de naissance:</strong> {{ etudiant.dateNaissance | date }}</p>
+  </div>
+</div>
+

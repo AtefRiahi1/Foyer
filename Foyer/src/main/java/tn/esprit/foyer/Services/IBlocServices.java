@@ -14,4 +14,5 @@ public interface IBlocServices {
 
     Bloc affecterChambresABloc(List<Long> idChambre, Long idBloc);
     Bloc affecterBlocAFoyer(Long idBloc, Long idFoyer) ;
+    public void testschedulure();
 }

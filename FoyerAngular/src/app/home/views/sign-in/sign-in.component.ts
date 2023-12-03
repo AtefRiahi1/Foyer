@@ -33,7 +33,7 @@ export class SignInComponent {
           toast: true,
           position: 'top-end',
           showConfirmButton: false,
-          timer: 1000,
+          timer: 4000,
           timerProgressBar: true,
           didOpen: (toast) => {
             toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -60,7 +60,7 @@ export class SignInComponent {
       Swal.fire({
         icon: 'error',
         title: 'Erreur',
-        text: 'Login failed. Please check your credentials.',
+        text: 'La connexion a échoué. Veuillez vérifier vos informations d\'identification.',
         showConfirmButton: true
       });
     });

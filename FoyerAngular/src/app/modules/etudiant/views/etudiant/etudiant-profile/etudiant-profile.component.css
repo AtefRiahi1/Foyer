@@ -1,0 +1,24 @@
+/* details-utilisateur.component.css */
+
+.details-utilisateur {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #333;
+}
+
+.info-utilisateur, .info-etudiant {
+  margin-bottom: 15px;
+}
+
+p {
+  margin: 5px 0;
+}
+
+/* Ajoutez d'autres styles selon vos préférences */
