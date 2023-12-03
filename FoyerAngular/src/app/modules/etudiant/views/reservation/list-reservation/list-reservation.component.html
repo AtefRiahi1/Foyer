@@ -19,7 +19,7 @@
             </div>
             <div class="col">
               <div *ngIf="reservation.idReservation; else enAttente">
-                <span class="badge bg-success">Confirmer</span>
+                <span class="badge bg-success">Confirmé</span>
               </div>
               <ng-template #enAttente>
                 <span class="badge bg-warning">En attente</span>
