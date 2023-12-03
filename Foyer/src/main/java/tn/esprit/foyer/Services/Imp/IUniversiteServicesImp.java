@@ -9,6 +9,7 @@ import tn.esprit.foyer.Services.IUniversiteServices;
 
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -29,15 +30,18 @@ public class IUniversiteServicesImp implements IUniversiteServices {
     }
 
     @Override
-    public List<Universite> getAllUniversites() {
-        return universiteRepository.findAll();
-    }
-
+    public List<Universite> getAllUniversites(){return  universiteRepository.findAll();}
     @Override
-    public Universite getUniversiteById(Long idUniversite) {
-        return universiteRepository.findById(idUniversite).orElseThrow(()->new IllegalArgumentException("Cette universite n'existe pas"));
-    }
+    public List<Universite> getUniversitesNonAffectees() {
+        List<Universite> universites = universiteRepository.findAll();
 
+        // Filtrer les universités qui ne sont pas affectées à un foyer
+        List<Universite> universitesNonAffectees = universites.stream()
+                .filter(universite -> !foyerRepository.existsByUniversite(universite))
+                .collect(Collectors.toList());
+
+        return universitesNonAffectees;
+    }
 
     @Override
     public Universite affecterFoyerAUniversite(Long idFoyer, String nomUniversite) {

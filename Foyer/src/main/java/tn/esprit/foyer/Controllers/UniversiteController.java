@@ -2,7 +2,9 @@ package tn.esprit.foyer.Controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.foyer.Entities.Foyer;
 import tn.esprit.foyer.Entities.Universite;
+import tn.esprit.foyer.Services.IFoyerServices;
 import tn.esprit.foyer.Services.IUniversiteServices;
 
 
@@ -15,6 +17,7 @@ import java.util.List;
 public class UniversiteController {
 
     private final IUniversiteServices universiteService;
+    private final IFoyerServices foyerService;
 
     @PostMapping
     public Universite addUniversite(@RequestBody Universite universite) {
@@ -27,15 +30,18 @@ public class UniversiteController {
     }
 
     @GetMapping
-    public List<Universite> getAllUniversites() {
-        return universiteService.getAllUniversites();
+    public List<Universite> getUniversitesNonAffectees() {
+        return universiteService.getUniversitesNonAffectees();
     }
 
-    @GetMapping("/{idUniversite}")
+   /* @GetMapping("/{idUniversite}")
     public Universite getUniversiteById(@PathVariable Long idUniversite) {
         return universiteService.getUniversiteById(idUniversite);
+    }*/
+    @GetMapping("/allfoyer/{idU}")
+    public Foyer getFoyerById(@PathVariable long idU) {
+        return foyerService.findFoyerByidUniversite(idU);
     }
-
 
     @PutMapping("/{idFoyer}/{nomUniversite}")
     public Universite affecterFoyerAUniversite(@PathVariable Long idFoyer, @PathVariable String nomUniversite) {

@@ -37,6 +37,7 @@ public class FoyerController {
         return foyerService.getAllFoyers();
     }
 
+
     @GetMapping("/{idFoyer}")
     public Foyer getFoyerById(@PathVariable Long idFoyer) {
         return foyerService.getFoyerById(idFoyer);
@@ -45,5 +46,10 @@ public class FoyerController {
     @DeleteMapping("/{idFoyer}")
     public void deleteFoyer(@PathVariable Long idFoyer) {
         foyerService.deleteFoyer(idFoyer);
+    }
+
+    @PostMapping("{idU}")
+    public Foyer ajouterFoyerAUniversite(@RequestBody Foyer foyer, @PathVariable Long idU){
+        return foyerService.ajouterFoyerAUniversite(foyer, idU);
     }
 }

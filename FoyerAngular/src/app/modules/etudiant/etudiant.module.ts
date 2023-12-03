@@ -7,6 +7,7 @@ import { EtudiantProfileComponent } from './views/etudiant/etudiant-profile/etud
 import { EtudiantControlComponent } from './views/etudiant/etudiant-control/etudiant-control.component';
 import { EtudiantEditComponent } from './views/etudiant/etudiant-edit/etudiant-edit.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ListFoyerComponent } from './views/foyer/list-foyer/list-foyer.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     EtudiantLayoutComponent,
     EtudiantProfileComponent,
     EtudiantControlComponent,
-    EtudiantEditComponent
+    EtudiantEditComponent,
+    ListFoyerComponent
   ],
   imports: [
     CommonModule,
