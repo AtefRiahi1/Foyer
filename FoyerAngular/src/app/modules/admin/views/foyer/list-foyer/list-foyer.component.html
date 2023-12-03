@@ -48,6 +48,12 @@
                           <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
                         </span>
                       </a>
+                      <a  class="table-link" > <!--[routerLink]="['editUser',item.id]"-->
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
                       
                       <!-- Utilisez *ngIf pour rendre le bouton "Delete" inactif si item.accountCategory est "Admin" -->
                       <button class="table-link danger"   (click)="delete(item.idFoyer)"><!--[disabled]="item.accountCategory == 'Admin' " (click)="send(item.id)"-->

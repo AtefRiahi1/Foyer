@@ -22,7 +22,7 @@ delete(idFoyer: number) {
   if (confirmDelete) {
     this.foyerservice.deleteFoyer(idFoyer).subscribe(() => {
       alert("Foyer supprimé");
-      this.Router.navigate(["/admin/foyer"]);
+      location.reload()
     });
   } else {
     

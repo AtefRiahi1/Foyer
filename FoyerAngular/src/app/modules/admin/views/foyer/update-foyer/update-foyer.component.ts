@@ -25,6 +25,7 @@ export class UpdateFoyerComponent implements OnInit {
     idFoyer: 0,
     nomFoyer: [''],
     capaciteFoyer: [0],
+  
   });
 
   getParam() {
@@ -51,6 +52,7 @@ export class UpdateFoyerComponent implements OnInit {
       idFoyer: this.updateForm.value.idFoyer,
       nomFoyer: this.updateForm.value.nomFoyer,
       capaciteFoyer: this.updateForm.value.capaciteFoyer,
+      idUniversite : this.updateForm.value
     };
 
     this.foyerS.updateFoyer(updatedFoyer).subscribe(() => {

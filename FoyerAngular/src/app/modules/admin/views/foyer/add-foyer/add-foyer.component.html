@@ -5,14 +5,14 @@
             <style>
               .circle-icon {
                 border-radius: 50%;
-                width: 40px; /* Ajustez la taille du cercle selon vos besoins */
+                width: 40px; 
                 height: 40px;
-                background-color: #fff; /* Couleur de fond du cercle */
+                background-color: #fff; 
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
-                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Ombre légère pour un effet de levée */
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
               }
             </style>
             <div class="circle-icon">
@@ -42,7 +42,17 @@
                         <input type="number" class="form-control border-0 bg-light rounded-end ps-1" placeholder="Capacité" id="exampleInputCin" formControlName="capaciteFoyer">
                       </div>
                     </div>
-                  
+
+                    <div class="mb-4">
+                      <label for="selectUniversite" class="form-label">Sélectionner l'université</label>
+                      <select class="form-select bg-light border-0" id="selectUniversite" formControlName="idUniversite">
+                        <option value="" disabled selected>Choisissez une université</option>
+                        <option *ngFor="let universite of universites" [value]="universite.idUniversite">{{ universite.nomUniversite }}</option>
+                      </select>
+                      <span class="text text-danger" *ngIf="addForm.controls['idUniversite'].invalid && addForm.controls['idUniversite'].touched">
+                        Veuillez sélectionner une université.
+                      </span>
+                    </div>
                     <!-- Button -->
                     <div class="align-items-center mt-0">
                       <div class="d-grid">

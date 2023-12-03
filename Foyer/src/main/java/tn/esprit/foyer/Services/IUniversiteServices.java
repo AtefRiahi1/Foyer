@@ -9,7 +9,8 @@ public interface IUniversiteServices {
     Universite addUniversite(Universite universite);
     Universite updateUniversite(Universite universite);
     List<Universite> getAllUniversites();
-    Universite getUniversiteById(Long idUniversite);
+
+    List<Universite> getUniversitesNonAffectees();
 
     Universite affecterFoyerAUniversite(Long idFoyer, String nomUniversite);
     Universite desaffecterFoyerAUniversite(Long idUniversite);

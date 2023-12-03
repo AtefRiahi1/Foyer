@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import tn.esprit.foyer.Entities.Foyer;
+import tn.esprit.foyer.Entities.Universite;
 
 
 public interface IFoyerRepository extends JpaRepository<Foyer, Long> {
@@ -11,5 +12,7 @@ public interface IFoyerRepository extends JpaRepository<Foyer, Long> {
             "JOIN foyer f\n" +
             "ON u.foyer_id_foyer =f.id_foyer\n" +
             "WHERE u.id_universite= :idU" ,nativeQuery = true)
-    Foyer findFoyerBynomUniversite(@Param("idU") long idU);
+    Foyer findFoyerByIdUniversite(@Param("idU") long idU);
+
+    boolean existsByUniversite(Universite universite);
 }

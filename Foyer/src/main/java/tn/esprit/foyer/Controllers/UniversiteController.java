@@ -30,14 +30,14 @@ public class UniversiteController {
     }
 
     @GetMapping
-    public List<Universite> getAllUniversites() {
-        return universiteService.getAllUniversites();
+    public List<Universite> getUniversitesNonAffectees() {
+        return universiteService.getUniversitesNonAffectees();
     }
 
-    @GetMapping("/{idUniversite}")
+   /* @GetMapping("/{idUniversite}")
     public Universite getUniversiteById(@PathVariable Long idUniversite) {
         return universiteService.getUniversiteById(idUniversite);
-    }
+    }*/
     @GetMapping("/allfoyer/{idU}")
     public Foyer getFoyerById(@PathVariable long idU) {
         return foyerService.findFoyerByidUniversite(idU);
