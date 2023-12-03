@@ -24,6 +24,7 @@ export class ListReservationComponent {
 
   ngOnInit(): void {
     const idEtudiant = this.userconnect.id;
+    console.log(this.userconnect.cin);
     this.reservationService.getCurrentReservationByEtudiantId(idEtudiant).subscribe((data) => {
       this.reservation = data;
     });

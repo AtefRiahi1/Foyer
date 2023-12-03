@@ -30,7 +30,7 @@ export class ReservationService {
     return this.http.put(`${environment.baseUrl}/reservation/annulerReservation/${cin}`, null);
   }
 
-  getCurrentReservationByEtudiantId(idEtudiant: number) {
+  getCurrentReservationByEtudiantId(idEtudiant: string) {
     return this.http.get<Reservation>(`${environment.baseUrl}/reservation/getReservationsByEtudiantId/${idEtudiant}`);
   }
 
