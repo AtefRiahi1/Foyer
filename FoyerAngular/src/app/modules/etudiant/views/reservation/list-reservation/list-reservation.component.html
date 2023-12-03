@@ -1,0 +1,43 @@
+<div class="card border bg-transparent rounded-3">
+  <div class="card-header bg-transparent d-sm-flex justify-content-sm-between align-items-center border-bottom">
+    <h3 class="mb-0">Liste des réservations</h3>
+    <button type="submit" (click)="ajouterReservation()" class="btn btn-success btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Ajouter réservation">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+    <a href="#" [routerLink]="['/etudiant/addreservation']" class="btn btn-sm btn-primary-soft mb-0" data-bs-toggle="modal" data-bs-target="#addNewcard">Ajouter réservation</a>
+  </div>
+  <div class="card-body">
+    <div *ngIf="reservation; else noReservations">
+      <div class="card bg-transparent rounded-3 border">
+        <div class="card-body">
+          <div class="row align-items-center border-bottom py-3">
+            <div class="col">
+              <h6 class="mb-0">Numéro de réservation: {{ reservation.idReservation }}</h6>
+            </div>
+            <div class="col">
+              <p class="mb-0">l'année universitaire: {{ reservation.anneeUniversitaire }}</p>
+            </div>
+            <div class="col">
+              <div *ngIf="reservation.idReservation; else enAttente">
+                <span class="badge bg-success">Confirmer</span>
+              </div>
+              <ng-template #enAttente>
+                <span class="badge bg-warning">En attente</span>
+              </ng-template>
+            </div>
+            <div class="col">
+              <div class="d-flex justify-content-center gap-3">
+                <button type="submit" (click)="annulerReservation()" class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Annuler réservation">
+                  <i class="fas fa-ban"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noReservations>
+      <div class="alert alert-info container">Aucune réservation n'est disponible pour cette année universitaire.</div>
+    </ng-template>
+  </div>
+</div>

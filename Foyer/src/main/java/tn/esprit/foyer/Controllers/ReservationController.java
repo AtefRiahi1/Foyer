@@ -37,8 +37,15 @@ public class ReservationController {
         return reservationService.ajouterReservation(idChambre, cin);
     }
 
-    @PutMapping("/{cin}")
+    @PutMapping("/annulerReservation/{cin}")
     public Reservation annulerReservation(@PathVariable Long cin) {
         return reservationService.annulerReservation(cin);
     }
+
+    @GetMapping("/getReservationsByEtudiantId/{idEtudiant}")
+    public Reservation getReservationsByEtudiantId(@PathVariable Long idEtudiant) {
+        return reservationService.getCurrentReservationByEtudiantId(idEtudiant);
+    }
+
+
 }
