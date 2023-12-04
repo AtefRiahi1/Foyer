@@ -64,4 +64,9 @@ public class IBlocServicesImp implements IBlocServices {
         blocRepository.save(bloc);
         return bloc;
     }
+
+    @Override
+    public List<Bloc> getBlocsByFoyer(Long idFoyer){
+        return blocRepository.findByFoyerIdFoyer(idFoyer);
+    }
 }

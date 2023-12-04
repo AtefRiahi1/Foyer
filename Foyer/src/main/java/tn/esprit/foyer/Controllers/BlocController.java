@@ -50,4 +50,9 @@ public class BlocController {
     public Bloc affecterBlocAFoyer(@PathVariable Long idBloc, @PathVariable Long idFoyer) {
         return blocService.affecterBlocAFoyer(idBloc, idFoyer);
     }
+
+    @GetMapping("/{idFoyer}/blocs")
+    public List<Bloc> getBlocsByFoyer(@PathVariable Long idFoyer){
+        return blocService.getBlocsByFoyer(idFoyer);
+    }
 }
