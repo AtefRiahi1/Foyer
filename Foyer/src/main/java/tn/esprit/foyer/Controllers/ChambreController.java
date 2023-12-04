@@ -66,15 +66,15 @@ public class ChambreController {
     public void deleteChambre(@PathVariable Long idChambre) {
         chambreService.deleteChambre(idChambre);
     }
-    @PostMapping(value="/upload")
+    /*@PostMapping(value="/upload")
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile multipartFile) throws IOException {
         String filename= StringUtils.cleanPath(multipartFile.getOriginalFilename());
         Path fileStorage=get(DIRECTORY,filename).toAbsolutePath().normalize();
         copy(multipartFile.getInputStream(),fileStorage,REPLACE_EXISTING);
         return ResponseEntity.ok().body(filename);
-    }
+    }*/
 
-    @GetMapping("/{fileName}")
+    /*@GetMapping("/{fileName}")
     public ResponseEntity<Resource> serveImage(@PathVariable String fileName) {
         Path imagePath = Paths.get("C:\\Users\\rahma\\Downloads\\uploads", fileName);
 
@@ -89,7 +89,7 @@ public class ChambreController {
         }
 
         return ResponseEntity.notFound().build();
-    }
+    }*/
     /*@GetMapping("/{idBloc}")
     public List<Chambre> getChambreByIdBloc(@PathVariable long idBloc) {
         return chambreService.getChambresParBloc(idBloc);

@@ -34,8 +34,14 @@ export class ChambreService {
   deleteChambre(idChambre: number) {
     return this.http.delete(`${environment.baseUrl}/chambre/${idChambre}`);
   }
-  upload(formData:FormData):Observable<HttpEvent<string>>{
+  /*upload(formData:FormData):Observable<HttpEvent<string>>{
     return this.http.post<string>(`${environment.baseUrl}/chambre/upload`,formData,{
+      reportProgress:true,
+      observe:'events'
+    });
+  }*/
+  upload(formData:FormData):Observable<HttpEvent<string>>{
+    return this.http.post<string>(`${environment.baseUrl}/auth/upload`,formData,{
       reportProgress:true,
       observe:'events'
     });
