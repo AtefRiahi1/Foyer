@@ -3,7 +3,10 @@ package tn.esprit.foyer.Controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.foyer.Entities.Bloc;
+import tn.esprit.foyer.Entities.Chambre;
+import tn.esprit.foyer.Entities.Foyer;
 import tn.esprit.foyer.Services.IBlocServices;
+import tn.esprit.foyer.Services.IChambreServices;
 
 
 import java.util.List;
@@ -15,6 +18,8 @@ import java.util.List;
 public class BlocController {
 
     private final IBlocServices blocService;
+    private final IChambreServices chambreService;
+
 
     @PostMapping
     public Bloc addBloc(@RequestBody Bloc bloc) {

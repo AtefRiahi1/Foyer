@@ -6,6 +6,8 @@ import { ChambreService } from 'src/app/core/services/chambre/chambre.service';
 import { TypeChambre } from 'src/app/core/models/TypeChambre/type-chambre.enum';
 import { Chambre } from 'src/app/core/models/chambre/chambre';
 import { Location } from '@angular/common';
+import {HttpEvent, HttpEventType} from "@angular/common/http";
+
 
 @Component({
   selector: 'app-add-chambre',
@@ -34,6 +36,7 @@ export class AddChambreComponent {
             idChambre: 0,
             numeroChambre: Number(this.addForm.value.numeroChambre) || 0,
             typeC: TypeChambre[typeCValue as keyof typeof TypeChambre] || TypeChambre.SIMPLE,
+            image:String(this.image )|| ''
         };
         this.chambreS.addChambre(chambre).subscribe(
             () => {
@@ -44,6 +47,32 @@ export class AddChambreComponent {
     } else {
         alert("Veuillez remplir tous les champs correctement.");
     }
+}
+image: string ="";
+onUploadImg(event:any):void{
+  const file = event.target.files[0];
+  if (!file) {
+    return;
+  }
+  this.image = file.name;
+  const formData=new FormData();
+  formData.append('file',file,file.name);
+  this.chambreS.upload(formData).subscribe(
+    (event:any)=>{
+      if (event.type === HttpEventType.Response) {
+        // Handle the final response
+        this.image = event.body;
+        console.log(this.image);
+      }
+    },
+    (error) => {
+      if (error.status === 400) {
+        const errorMessage = error.error;
+        console.log(errorMessage);
+        alert(errorMessage);
+      }
+    }
+  );
 }
 
   isClicked: boolean = false;

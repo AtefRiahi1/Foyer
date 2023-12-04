@@ -4,4 +4,5 @@ export class Chambre {
     idChambre!: number;
     numeroChambre!: number;
     typeC!: TypeChambre;
+    image!: string;
 }

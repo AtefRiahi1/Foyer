@@ -37,10 +37,11 @@
                                             class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i
                                                 class="fas fa-home"></i></span>
                                         <input type="text" class="form-control border-0 bg-light rounded-end ps-1"
-                                            placeholder="Num Chambre" id="exampleInputNom" formControlName="numeroChambre">
-                                            <span class="text text-danger"
+                                            placeholder="Num Chambre" id="exampleInputNom"
+                                            formControlName="numeroChambre">
+                                        <span class="text text-danger"
                                             *ngIf="updateForm.controls['numeroChambre'].hasError('pattern')">
-                                            Le numero de la chambre doit contrnir seulement des chiffres.
+                                            Le numero de la chambre doit conternir seulement des chiffres.
                                         </span>
                                         <span class="text text-danger"
                                             *ngIf="updateForm.controls['numeroChambre'].invalid && updateForm.controls['numeroChambre'].touched">Le
@@ -48,19 +49,28 @@
                                         </span>
                                     </div>
                                 </div>
-                                                                <div class="mb-4">
+                                <div class="mb-4">
                                     <label for="typeC" class="form-label">Type chambre</label>
                                     <div class="input-group input-group-lg">
-                                        
+
                                         <select class="form-select border-0 bg-light rounded-end ps-1" id="typeC"
                                             formControlName="typeC">
                                             <option value="" disabled selected>Sélectionner le type de chambre</option>
                                             <option *ngFor="let type of typesChambre" [value]="type">{{ type }}</option>
                                         </select>
-                                        
+
                                     </div>
                                 </div>
-                                
+                                <div class="mb-4">
+                                    <label for="exampleInputImage" class="form-label">Image de la chambre</label>
+                                    <div class="input-group input-group-lg">
+                                        <span
+                                            class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i
+                                                class="fas fa-file-image"></i></span>
+                                        <input type="file" class="form-control border-0 bg-light rounded-end ps-1"
+                                            id="exampleInputImage" [(ngModel)]="image" (change)="onUploadImg($event)">
+                                    </div>
+                                </div>
 
                                 <br>
 

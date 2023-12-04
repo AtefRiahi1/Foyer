@@ -23,6 +23,8 @@
               <table class="table user-list">
                 <thead>
                   <tr>
+
+                    <th><span>Image de la chambre</span></th>
                     <th><span>Numero de la chambre</span></th>
                     <th><span>Type</span></th>
                     <th>&nbsp;</th>
@@ -30,6 +32,10 @@
                 </thead>
                 <tbody *ngFor="let item of listChambre">
                     <tr>
+                        <td>
+                          
+                          <img src="http://localhost:9090/auth/{{item.image}}"  alt="" style="height: 50px">
+                        </td>
                         <td>
                           <a href="#" class="user-link">{{item.numeroChambre}} </a>
                         </td>

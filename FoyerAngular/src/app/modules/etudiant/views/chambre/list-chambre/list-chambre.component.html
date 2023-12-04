@@ -1,0 +1,17 @@
+
+<div *ngIf="listChambre.length > 0" class="container mt-4">
+  <h2>Liste des Chambres</h2>
+  <ul class="list-group">
+    <li *ngFor="let chambre of listChambre" class="list-group-item mb-3">
+      <div class="row">
+        <div class="col-md-3">
+          <img class="card-img-top" src="http://localhost:9090/auth/{{chambre.image}}" alt="">
+          <strong>Numéro de Chambre:</strong> {{ chambre.numeroChambre }}<br>
+          <strong>Type de Chambre:</strong> {{ chambre.typeC }}<br>
+          <!-- Autres détails de la chambre ici -->
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+

@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Chambre } from 'src/app/core/models/chambre/chambre';
 import { TypeChambre } from 'src/app/core/models/TypeChambre/type-chambre.enum';
 import { environment } from 'src/environments/environment';
@@ -24,7 +25,7 @@ export class ChambreService {
   }
 
   getChambreById(idChambre: number) {
-    return this.http.get<Chambre>(`${environment.baseUrl}/chambre/${idChambre}`);
+    return this.http.get<Chambre>(`${environment.baseUrl}/chambre/get/${idChambre}`);
   }
 
   getChambresParBlocEtType(idBloc: number, typeC: TypeChambre) {
@@ -33,5 +34,17 @@ export class ChambreService {
   deleteChambre(idChambre: number) {
     return this.http.delete(`${environment.baseUrl}/chambre/${idChambre}`);
   }
+  upload(formData:FormData):Observable<HttpEvent<string>>{
+    return this.http.post<string>(`${environment.baseUrl}/chambre/upload`,formData,{
+      reportProgress:true,
+      observe:'events'
+    });
+  }
+  getChambreByBloc(idBloc : number) : Observable<Chambre[]>{
+    return this.http.get<Chambre[]>(`${environment.baseUrl}/chambre/getByBloc/${idBloc}`);
+  }
+
+
+  
 }
 
