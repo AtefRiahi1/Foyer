@@ -7,6 +7,7 @@ import { AddChambreComponent } from './views/chambre/add-chambre/add-chambre.com
 import { ListeChambreComponent } from './views/chambre/liste-chambre/liste-chambre.component';
 import { UpdateChambreComponent } from './views/chambre/update-chambre/update-chambre.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AffectationBLocChambreComponent } from './views/chambre/affectation-bloc-chambre/affectation-bloc-chambre.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AdminLayoutComponent,
     AddChambreComponent,
     ListeChambreComponent,
-    UpdateChambreComponent
+    UpdateChambreComponent,
+    AffectationBLocChambreComponent
   ],
   imports: [
     CommonModule,

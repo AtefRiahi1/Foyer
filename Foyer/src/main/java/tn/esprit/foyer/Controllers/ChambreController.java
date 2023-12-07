@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import static java.nio.file.Paths.get;
 
 import org.springframework.web.multipart.MultipartFile;
+import tn.esprit.foyer.Entities.Bloc;
 import tn.esprit.foyer.Entities.Chambre;
 import tn.esprit.foyer.Entities.TypeChambre;
 import tn.esprit.foyer.Services.IChambreServices;

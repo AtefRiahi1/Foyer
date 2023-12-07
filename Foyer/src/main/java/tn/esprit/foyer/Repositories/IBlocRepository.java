@@ -10,6 +10,7 @@ import java.util.List;
 
 
 public interface IBlocRepository extends JpaRepository<Bloc, Long> {
-    /*@Query(value = "SELECT * FROM chambre c JOIN bloc b ON c.bloc_id_bloc = b.id_bloc WHERE b.id_bloc = :idBloc", nativeQuery = true)
-    Chambre findChambresByBlocId(@Param("idBloc") Long idBloc);*/
+    //boolean existsByChambres(List<Chambre> chambres);
+    boolean existsByChambresIn(List<Chambre> chambres);
 }
+

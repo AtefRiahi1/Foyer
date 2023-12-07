@@ -34,23 +34,22 @@ export class ChambreService {
   deleteChambre(idChambre: number) {
     return this.http.delete(`${environment.baseUrl}/chambre/${idChambre}`);
   }
-  /*upload(formData:FormData):Observable<HttpEvent<string>>{
-    return this.http.post<string>(`${environment.baseUrl}/chambre/upload`,formData,{
-      reportProgress:true,
-      observe:'events'
-    });
-  }*/
-  upload(formData:FormData):Observable<HttpEvent<string>>{
-    return this.http.post<string>(`${environment.baseUrl}/auth/upload`,formData,{
-      reportProgress:true,
-      observe:'events'
+  upload(formData: FormData): Observable<HttpEvent<string>> {
+    return this.http.post<string>(`${environment.baseUrl}/auth/upload`, formData, {
+      reportProgress: true,
+      observe: 'events'
     });
   }
-  getChambreByBloc(idBloc : number) : Observable<Chambre[]>{
+  getChambreByBloc(idBloc: number): Observable<Chambre[]> {
     return this.http.get<Chambre[]>(`${environment.baseUrl}/chambre/getByBloc/${idBloc}`);
   }
+  getChambresNonAffectees(): Observable<Chambre[]> {
+    return this.http.get<Chambre[]>(`${environment.baseUrl}/bloc/chambresNonAffectees`);
+  }
 
+  affecterChambresABloc(idBloc: number, numeroChambre: number[]) {
+    return this.http.post(`${environment.baseUrl}/bloc/${idBloc}`, numeroChambre);
+  }
 
-  
 }
 

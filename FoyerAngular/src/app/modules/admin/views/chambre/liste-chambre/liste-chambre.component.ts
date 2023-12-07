@@ -23,6 +23,7 @@ export class ListeChambreComponent {
     if (confirmDelete) {
       this.chambreS.deleteChambre(idC).subscribe(() => {
         alert("Chambre supprimée avec succés ");
+        location.reload();
         this.Router.navigate(["/admin/chambre"]);
       });
     } else {

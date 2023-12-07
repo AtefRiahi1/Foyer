@@ -1,6 +1,7 @@
 package tn.esprit.foyer.Services;
 
 import tn.esprit.foyer.Entities.Bloc;
+import tn.esprit.foyer.Entities.Chambre;
 
 
 import java.util.List;
@@ -14,4 +15,5 @@ public interface IBlocServices {
 
     Bloc affecterChambresABloc(List<Long> idChambre, Long idBloc);
     Bloc affecterBlocAFoyer(Long idBloc, Long idFoyer) ;
+    List<Chambre> getChambresNonAffectees();
 }
