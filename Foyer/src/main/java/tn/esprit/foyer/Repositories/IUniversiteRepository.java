@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface IUniversiteRepository extends JpaRepository<Universite, Long>  {
     Universite findByNomUniversiteContainingIgnoreCase(String nomUniversite);
+
+    Universite findUniversiteByFoyer_IdFoyer(Long idf);
 }

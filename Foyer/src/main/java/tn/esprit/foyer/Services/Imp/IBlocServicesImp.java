@@ -14,7 +14,7 @@ import java.util.List;
 
 @Service
 
-@Slf4j
+
 @RequiredArgsConstructor
 @Slf4j
 public class IBlocServicesImp implements IBlocServices {

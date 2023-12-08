@@ -54,7 +54,7 @@ public class AuthenticationController {
 
     @GetMapping("/{fileName}")
     public ResponseEntity<Resource> serveImage(@PathVariable String fileName) {
-        Path imagePath = Paths.get("C:\\Users\\PC\\Downloads\\uploads\\", fileName);
+        Path imagePath = Paths.get("C:\\Users\\LENOVO\\Downloads\\uploads\\", fileName);
 
         try {
             Resource resource = new UrlResource(imagePath.toUri());

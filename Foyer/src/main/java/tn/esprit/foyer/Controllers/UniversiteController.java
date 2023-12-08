@@ -42,7 +42,11 @@ public class UniversiteController {
     @GetMapping("/{idUniversite}")
     public Universite getUniversiteById(@PathVariable Long idUniversite) {
         return universiteService.getUniversiteById(idUniversite);
-    }*/
+    }
+    @GetMapping("/all")
+    public List<Universite> getAllUniversites() {
+        return universiteService.getAllUniversites();
+    }
     @GetMapping("/allfoyer/{idU}")
     public Foyer getFoyerById(@PathVariable long idU) {
         return foyerService.findFoyerByidUniversite(idU);

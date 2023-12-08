@@ -71,5 +71,10 @@ public class IUniversiteServicesImp implements IUniversiteServices {
         return universiteRepository.save(universite);
     }
 
+    @Override
+    public Universite getUniversiteById(Long idUniversite) {
+        return universiteRepository.findById(idUniversite).orElseThrow(() -> new IllegalArgumentException("Cette universite n'existe pas"));
+    }
+
 
 }

@@ -13,15 +13,15 @@ export class UniversiteService {
   constructor(private http: HttpClient) { }
 
 
-  
+
   ajouteruniversite(universite: Universite){
     return this.http.post(`${environment.baseUrl}/universite`, universite);
   }
 
-  
+
 
   getUniversite(): Observable<Universite[]>{
-    return this.http.get<Universite[]>(`${environment.baseUrl}/universite`);
+    return this.http.get<Universite[]>(`${environment.baseUrl}/universite/all`);
   }
 
   updateuniversite(universite: Universite){
@@ -36,19 +36,5 @@ export class UniversiteService {
     return this.http.delete(`${environment.baseUrl}/universite/${idUniversite}`);
   }
 
-  affecterFoyerAUniversite(idFoyer: number, nomUniversite: string): Observable<any> {
-    const url = `${environment.baseUrl}/${idFoyer}/${nomUniversite}`;
-    return this.http.put(url, {});
-  }
-
-  // affecterFoyerAUniversite(idFoyer: number, nomUniversite: string) {
-  //   const url = `${environment.baseUrl}/${idFoyer}/${nomUniversite}`;
-  //   return this.http.put<Universite>(url, {}); // Remplacez 'Universite' par le type de retour attendu
-  // }
-
-  getAllFoyers(): Observable<Foyer[]> {
-    const url = `${environment.baseUrl}/foyer`; // Assurez-vous que le chemin correspond à votre backend
-    return this.http.get<Foyer[]>(url);
-  }
 
 }

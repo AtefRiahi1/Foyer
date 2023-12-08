@@ -16,7 +16,7 @@
             Nom de l'Université: {{ university.nomUniversite }}
           </h5>
           <p class="card-text">Adresse: {{ university.adresse }}</p>
-          <button>foyrer</button>
+          <a [routerLink]="['/etudiant',university.idUniversite,'listfoyer']">foyrer</a>
           <!-- Add ffecteryour buttons here if needed -->
         </div>
       </div>

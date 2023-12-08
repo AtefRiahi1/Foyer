@@ -13,7 +13,7 @@ export class ListUniversiteComponent {
   constructor(private Router: Router, private universiteS: UniversiteService) {}
 
   listUniversite: Universite[] = [];
- 
+
 
   search!: string;
 
@@ -21,7 +21,6 @@ export class ListUniversiteComponent {
     // this.universiteS.getUniversite().subscribe((admin) => {
     //   this.listUniversite = admin;
     // });
-    this.loadFoyers();
     this.loadUniversites();
   }
   loadUniversites() {
@@ -50,29 +49,18 @@ export class ListUniversiteComponent {
       alert('Suppression annulée');
     }
   }
-  
+
   selectedFoyer: string | undefined;
-   listeDesFoyers: Foyer[] = []; 
+   listeDesFoyers: Foyer[] = [];
 
 
-    loadFoyers() {
-      this.universiteS.getAllFoyers().subscribe(
-        (foyers) => {
-          this.listeDesFoyers = foyers;
-        },
-        (error) => {
-          console.error('Erreur lors de la récupération des foyers:', error);
-        }
-      );
-    }
-    
-    
+
     // affecterFoyerAUniversite(idFoyer: number, nomUniversite: string) {
     //   if (!this.selectedFoyer) {
     //     alert('Veuillez sélectionner un foyer avant d\'affecter.');
     //     return;
     //   }
-    
+
     //   this.universiteS.affecterFoyerAUniversite(idFoyer, nomUniversite).subscribe(
     //     (response) => {
     //       console.log('Foyer affecté à l\'université avec succès:', response);
@@ -84,7 +72,7 @@ export class ListUniversiteComponent {
     //     }
     //   );
     // }
-    
+
 }
 
 
