@@ -35,7 +35,7 @@ export class AffecterBlocFoyerComponent implements OnInit {
     this.affecterBlocForm.reset();
   }
   getAllFoyer() {
-    this.foyerservice.getAllFoyers().subscribe({
+    this.foyerservice.getAllFoyer().subscribe({
       next: (data) => {
         this.listeFoyer = data;
         console.log(this.listeFoyer);

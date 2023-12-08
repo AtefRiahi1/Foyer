@@ -36,7 +36,7 @@ const routes: Routes = [
     { path: 'addreservation', component: AddReservationComponent},
     { path: 'reservations/reservationsedit/:id', component: UpdateReservationComponent },
     { path: 'statreservation', component: StatReservationComponent},
-    { path: 'add_bloc', component: AddBlocComponent },
+    { path: 'add_bloc/:id', component: AddBlocComponent },
     { path: 'list-bloc', component: ListBlocComponent },
     { path: 'bloc/:idBloc', component: EditBlocComponent }
 

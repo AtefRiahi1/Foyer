@@ -12,16 +12,23 @@ import {Observable} from "rxjs";
   styleUrls: ['./add-bloc.component.css']
 })
 export class AddBlocComponent {
-  foyer_id_foyer = 1;
+  foyer_id_foyer!:number;
   bloc!: Bloc;
 
-  constructor(private blocService: BlocService , private router:Router) {
+  constructor(private activatedRoute: ActivatedRoute,private blocService: BlocService , private router:Router) {
   }
 
   addBlocForm = new FormGroup({
     nomBloc: new FormControl('', Validators.required),
     capacityBloc: new FormControl('', Validators.required),
   });
+
+
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params => {
+      this.foyer_id_foyer = +params['id']; // 'idFoyer' doit correspondre au nom du paramètre dans votre route
+    });
+  }
 
   resetForm() {
     this.addBlocForm.reset();

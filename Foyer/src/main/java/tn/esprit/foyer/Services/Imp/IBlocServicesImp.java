@@ -52,8 +52,8 @@ public class IBlocServicesImp implements IBlocServices {
 
     @Override
     public Bloc affecterChambresABloc(List<Long> numChambre, Long idBloc) {
-        Bloc bloc = blocRepository.findById(idBloc).orElseThrow(()->new IllegalArgumentException("Ce bloc n'existe pas"));
-        for(Long num:numChambre){
+        Bloc bloc = blocRepository.findById(idBloc).orElseThrow(() -> new IllegalArgumentException("Ce bloc n'existe pas"));
+        for (Long num : numChambre) {
             Chambre chambre = chambreRepository.findChambreByNumeroChambre(num);
             chambre.setBloc(bloc);
             chambreRepository.save(chambre);
@@ -63,8 +63,8 @@ public class IBlocServicesImp implements IBlocServices {
 
     @Override
     public Bloc affecterBlocAFoyer(Long idBloc, Long idFoyer) {
-        Bloc bloc = blocRepository.findById(idBloc).orElseThrow(()->new IllegalArgumentException("Ce bloc n'existe pas"));
-        Foyer foyer = foyerRepository.findById(idFoyer).orElseThrow(()->new IllegalArgumentException("Ce foyer n'existe pas"));
+        Bloc bloc = blocRepository.findById(idBloc).orElseThrow(() -> new IllegalArgumentException("Ce bloc n'existe pas"));
+        Foyer foyer = foyerRepository.findById(idFoyer).orElseThrow(() -> new IllegalArgumentException("Ce foyer n'existe pas"));
         bloc.setFoyer(foyer);
         blocRepository.save(bloc);
         return bloc;
@@ -72,13 +72,16 @@ public class IBlocServicesImp implements IBlocServices {
 
     @Override
     @Scheduled(fixedRate = 60000)
-    public void testschedulure(){
-        List<Bloc> blocList=blocRepository.findAll();
-        for (Bloc bloc : blocList){
+    public void testschedulure() {
+        List<Bloc> blocList = blocRepository.findAll();
+        for (Bloc bloc : blocList) {
             log.info(String.valueOf(chambreRepository.findChambreByBloc(bloc).size()));
+
+            log.info("cdvrdf");
         }
-        log.info("cdvrdf");
-    public List<Bloc> getBlocsByFoyer(Long idFoyer){
+    }
+
+    public List<Bloc> getBlocsByFoyer(Long idFoyer) {
         return blocRepository.findByFoyerIdFoyer(idFoyer);
     }
 }

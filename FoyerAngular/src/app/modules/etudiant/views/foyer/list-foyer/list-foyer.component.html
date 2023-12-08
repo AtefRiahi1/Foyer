@@ -8,7 +8,7 @@
             <div class="card-body">
               <h5 class="card-title">Nom foyer : {{ foyer.nomFoyer }}</h5>
               <p class="card-text">Capacité: {{ foyer.capaciteFoyer }} </p>
-              <button class="btn btn-blue" >Afficher la liste des blocs</button>
+              <button class="btn btn-blue" [routerLink]="'/etudiant/list-bloc-f/' + foyer.idFoyer">Afficher la liste des blocs</button>
             </div>
           </div>
         </div>
