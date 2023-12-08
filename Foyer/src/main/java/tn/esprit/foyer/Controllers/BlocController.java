@@ -58,5 +58,8 @@ public class BlocController {
     public void dateTest(@PathVariable LocalDate date){
         log.info(String.valueOf(date));
 
+    @GetMapping("/{idFoyer}/blocs")
+    public List<Bloc> getBlocsByFoyer(@PathVariable Long idFoyer){
+        return blocService.getBlocsByFoyer(idFoyer);
     }
 }

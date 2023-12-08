@@ -78,5 +78,7 @@ public class IBlocServicesImp implements IBlocServices {
             log.info(String.valueOf(chambreRepository.findChambreByBloc(bloc).size()));
         }
         log.info("cdvrdf");
+    public List<Bloc> getBlocsByFoyer(Long idFoyer){
+        return blocRepository.findByFoyerIdFoyer(idFoyer);
     }
 }
