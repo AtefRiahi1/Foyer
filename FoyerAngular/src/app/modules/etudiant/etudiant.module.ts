@@ -14,6 +14,9 @@ import { UpdateReservationComponent } from './views/reservation/update-reservati
 import { DeleteReservationComponent } from './views/reservation/delete-reservation/delete-reservation.component';
 import { ListUniversiteFrontComponent } from './views/universite/list-universite-front/list-universite-front.component';
 
+import { DetailsBlocComponent } from './views/bloc/details-bloc/details-bloc.component';
+import { AffecterBlocFoyerComponent } from './views/bloc/affecter-bloc-foyer/affecter-bloc-foyer.component';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 
 @NgModule({
@@ -27,7 +30,9 @@ import { ListUniversiteFrontComponent } from './views/universite/list-universite
     AddReservationComponent,
     UpdateReservationComponent,
     DeleteReservationComponent,
-    ListUniversiteFrontComponent
+    ListUniversiteFrontComponent,
+    DetailsBlocComponent,
+    AffecterBlocFoyerComponent
 
   ],
     imports: [
@@ -35,7 +40,10 @@ import { ListUniversiteFrontComponent } from './views/universite/list-universite
         EtudiantRoutingModule,
         FormsModule,
         ReactiveFormsModule,
-        NgOptimizedImage
+        NgOptimizedImage,
+        NgxQRCodeModule
     ]
+    
 })
 export class EtudiantModule { }
+

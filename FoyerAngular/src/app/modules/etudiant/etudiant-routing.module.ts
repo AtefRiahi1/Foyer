@@ -10,6 +10,9 @@ import {ListReservationComponent} from "./views/reservation/list-reservation/lis
 import {AddReservationComponent} from "./views/reservation/add-reservation/add-reservation.component";
 import { ListUniversiteComponent } from '../admin/views/universite/list-universite/list-universite.component';
 import { ListUniversiteFrontComponent } from './views/universite/list-universite-front/list-universite-front.component';
+import { ListBlocsComponent } from './views/bloc/list-blocs/list-blocs.component';
+import { DetailsBlocComponent } from './views/bloc/details-bloc/details-bloc.component';
+import { AffecterBlocFoyerComponent } from './views/bloc/affecter-bloc-foyer/affecter-bloc-foyer.component';
 
 const routes: Routes = [
   { path: '', component: EtudiantLayoutComponent, children:[
@@ -20,11 +23,16 @@ const routes: Routes = [
       { path: 'reservations', component: ListReservationComponent},
       { path: 'addreservation', component: AddReservationComponent},
       { path: 'listUniversitefront', component: ListUniversiteFrontComponent },
-      { path: 'reservations/edit/:idreservation', component: UpdateReservationComponent }
+      { path: 'reservations/edit/:idreservation', component: UpdateReservationComponent },
+      { path: 'list-bloc-f/:idFoyer', component: ListBlocsComponent },
+      { path: 'bloc/:idBloc/:idFoyer', component: DetailsBlocComponent },
+      {
+        path: 'affecter_foyer_bloc/:idbloc',
+        component: AffecterBlocFoyerComponent
+      }
 
-  ]}
+  ]}];
 
-];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

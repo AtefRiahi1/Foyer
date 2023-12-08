@@ -15,6 +15,10 @@ import {UpdateReservationComponent} from "./views/reservation/update-reservation
 import { ListUniversiteComponent } from './views/universite/list-universite/list-universite.component';
 import { AjouterUniversiteComponent } from './views/universite/ajouter-universite/ajouter-universite.component';
 import { UpdateUniversiteComponent } from './views/universite/update-universite/update-universite.component';
+import {AddBlocComponent} from "./views/bloc/add-bloc/add-bloc.component";
+import {ListBlocComponent} from "./views/bloc/list-bloc/list-bloc.component";
+import {EditBlocComponent} from "./views/bloc/edit-bloc/edit-bloc.component";
+
 
 
 const routes: Routes = [
@@ -22,16 +26,20 @@ const routes: Routes = [
     { path: 'foyer', component: ListFoyerComponent },
     { path: 'foyer/addfoyer', component: AddFoyerComponent},
     { path: 'foyer/updatefoyer/:id', component: UpdateFoyerComponent},
-      { path: 'universite', component: ListUniversiteComponent },
-      { path: 'universite/ajouter', component: AjouterUniversiteComponent },
-      { path: 'universite/update/:id', component: UpdateUniversiteComponent },
-      { path: 'updateEtudiant/:id', component: UpdateEtudiantComponent },
-      { path: 'addEtudiant', component: AddEtudiantComponent },
-      { path: 'etudiants', component: ListEtudiantComponent},
-      { path: 'reservations', component: ListReservationComponent },
-      { path: 'addreservation', component: AddReservationComponent},
-      { path: 'reservations/reservationsedit/:id', component: UpdateReservationComponent },
-      { path: 'statreservation', component: StatReservationComponent}
+    { path: 'universite', component: ListUniversiteComponent },
+    { path: 'universite/ajouter', component: AjouterUniversiteComponent },
+    { path: 'universite/update/:id', component: UpdateUniversiteComponent },
+    { path: 'updateEtudiant/:id', component: UpdateEtudiantComponent },
+    { path: 'addEtudiant', component: AddEtudiantComponent },
+    { path: 'etudiants', component: ListEtudiantComponent},
+    { path: 'reservations', component: ListReservationComponent },
+    { path: 'addreservation', component: AddReservationComponent},
+    { path: 'reservations/reservationsedit/:id', component: UpdateReservationComponent },
+    { path: 'statreservation', component: StatReservationComponent},
+    { path: 'add_bloc', component: AddBlocComponent },
+    { path: 'list-bloc', component: ListBlocComponent },
+    { path: 'bloc/:idBloc', component: EditBlocComponent }
+
     ] }
 
 ];

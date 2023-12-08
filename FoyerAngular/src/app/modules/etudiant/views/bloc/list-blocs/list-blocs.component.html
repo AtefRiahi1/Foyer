@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row" #cardRow>
+    <div class="col-md-4" *ngFor="let bloc of blocListe">
+      <div
+        class="card mb-3"
+        style="border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s ease-in-out;"
+        onmouseover="this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';"
+        onmouseleave="this.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';"
+      >
+        <div class="card-body">
+          <h5 class="card-title">{{ bloc.nomBloc }}</h5>
+          <p class="card-text">Capacité Bloc: {{ bloc.capacityBloc }}</p>
+          <p class="card-text">Associee Foyer: {{ foyerListe.nomFoyer }}</p>
+
+          <button class="badge rounded-pill text-bg-info w-75 "(click)="detailsById(bloc.idBloc, idFoyer)">Voir les détails</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--
+<div class="container">
+  <div class="card p-3">
+    <div class="table-responsive">
+      <table class="table ">
+        <thead>
+        <tr>
+          <th scope="col">Nom Bloc</th>
+          <th scope="col">Capacité Bloc</th>
+          <th scope="col">Associee Foyer</th>
+
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let bloc of blocListe">
+          <td>{{ bloc.nomBloc }}</td>
+          <td>{{ bloc.capacityBloc }}</td>
+
+          <td>{{ idFoyer }}</td>
+
+
+          <td>
+            <div class="custumer_action">
+              <i class="bi bi-eye-fill ms-3" (click)="detailsById(bloc.idBloc,idFoyer)"></i>
+            </div>
+          </td>
+          -->
+          <!--
+          <td> <button *ngIf="bloc.idFoyer==null" type="button" class="btn btn-warning p-1 w-75 "
+                       >afficher chambre</button>
+            <button *ngIf="bloc.idFoyer!=null" disabled type="button"
+                    class="btn btn-primary p-1 w-75">Désaffectrer</button>
+          </td>
+          -->
+<!--
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+-->
