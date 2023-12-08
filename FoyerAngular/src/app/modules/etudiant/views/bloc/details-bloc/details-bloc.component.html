@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="card">
+    <ul class="list-group p-3">
+      <li class="list-group-item list-group-item-dark">Identifiant bloc : <strong>{{ bloc.idBloc }}</strong></li>
+      <li class="list-group-item list-group-item-dark">Nom du Bloc : <strong>{{ bloc.nomBloc }}</strong></li>
+      <li class="list-group-item list-group-item-dark">Capacité du Bloc : <strong>{{ bloc.capacityBloc }}</strong></li>
+      <li class="list-group-item list-group-item-dark">Nom du Foyer : <strong>{{ foyerListe.nomFoyer }}</strong></li>
+      <li class="list-group-item list-group-item-dark">
+        <ngx-qrcode [elementType]="qrType" [value]="qrValue"></ngx-qrcode>
+      </li>
+    </ul>
+    <div *ngIf="!(bloc && foyerListe)">
+      <p>Loading...</p>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+<!--   <li *ngIf="bloc.foyer!=null" class="list-group-item list-group-item-dark"> foyer associé a ce bloc :
+
+     <ul class="list-group ms-5 p-3">
+       <li>identifiant foyer : <strong>{{bloc.foyer.idFoyer }} </strong> </li>
+       <li>Nom foyer : <strong>{{bloc.foyer.nomFoyer}} </strong></li>
+       <li>Capacité Foyer : <strong>{{bloc.foyer.capaciteFoyer}} </strong> </li>
+     </ul>
+   </li>
+-->

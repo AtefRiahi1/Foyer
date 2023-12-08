@@ -1,0 +1,29 @@
+<p>edit-bloc works!</p>
+<form [formGroup]="updateForm" (ngSubmit)="update()" *ngIf="updateForm">
+  <div class="form-group" >
+    <label for="nb"> nomBloc</label>
+    <input type="text" class="form-control" id="nb" name="nomBloc" formControlName="nomBloc">
+    <!-- <small class="text-danger" *ngIf="fn?.errors?.['required'] && fn.touched " >name is required </small>
+    <small class="text-danger" *ngIf="fn?.errors?.['minlength'] && fn.touched " > Name must be at least 3 cara</small>
+    <small class="text-danger" *ngIf="fn?.errors?.['pattern'] && fn.touched " > !!!!</small> -->
+    <div>
+      <label for="cb"> capacityBloc</label>
+      <input type="text" class="form-control" id="cb" name="capacityBloc" formControlName="capacityBloc">
+      <!-- <small class="text-danger" *ngIf="ln?.errors?.['required'] && ln.touched " >lastname is required </small>
+      <small class="text-danger" *ngIf="ln?.errors?.['minlength'] && ln.touched " > LastName must be at least 3 cara</small>
+      <small class="text-danger" *ngIf="ln?.errors?.['pattern'] && ln.touched " >!!!!! </small> -->
+    </div>
+
+<!--
+    <label for="etatblocs">Etatblocs</label>
+    <div formArrayName="etatblocs" id="etatblocs">
+      <button type="button" class="btn btn-primary" (click)="addetatbloc()">Add etatblocs</button>
+      <div *ngFor="let skill of etatbloc.controls; let i=index">
+        <input type="text" id="etatblocs-{{i}}" class="form-control" name="etatblocs-{{i}}" [formControlName]="i">
+      </div>
+    </div>
+    <br>
+    -->
+    <button type="submit" class="btn btn-primary" >update</button>
+  </div>
+</form>

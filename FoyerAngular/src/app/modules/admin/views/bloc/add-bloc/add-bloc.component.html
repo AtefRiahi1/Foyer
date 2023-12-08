@@ -1,0 +1,35 @@
+<div class="container customer-container">
+  <div class="card mb-3 w-75">
+    <form [formGroup]="addBlocForm" (ngSubmit)="createNewBloc()">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="../../../../../assets/images/Team work-bro.svg" class="img-fluid rounded-start" alt="...">
+        </div>
+
+        <div class="col-md-8 customer">
+          <div class="card-body w-100">
+            <h5 class="card-title">Ajouter nouveau Bloc</h5>
+            <div class="mb-3">
+              <label for="nomBloc" class="form-label">Nom Bloc</label>
+              <input type="text" class="form-control" id="nomBloc" aria-describedby="nomBloc"
+                     formControlName="nomBloc">
+              <small *ngIf="addBlocForm.get('nomBloc')?.errors?.['required'] && addBlocForm.get('nomBloc')?.touched"
+                     class="text-danger">Nom Bloc est requis</small>
+            </div>
+            <div class="mb-3">
+              <label for="capacityBloc" class="form-label">Capacité Bloc</label>
+              <input type="number" class="form-control" id="capacityBloc" aria-describedby="capacityBloc"
+                     formControlName="capacityBloc">
+              <small *ngIf="addBlocForm.get('capacityBloc')?.errors?.['required'] && addBlocForm.get('capacityBloc')?.touched"
+                     class="text-danger">Capacité Bloc est requise</small>
+            </div>
+            <div class="customerContainerBtn">
+              <button class="btn btn-outline-danger" type="button" (click)="resetForm()">Annuler</button>
+              <button class="btn btn-outline-primary" type="submit">Confirmer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

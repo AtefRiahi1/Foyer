@@ -24,18 +24,25 @@
           <!-- Title -->
           <li class="nav-item ms-2 my-2">Pages</li>
 
-          <!-- menu item 2 -->
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#collapsepage" role="button" aria-expanded="false" aria-controls="collapsepage">
-              <i class="bi bi-basket fa-fw me-2"></i>Courses
+            <a class="nav-link" data-bs-toggle="collapse" href="#collapsepage" role="button"
+               aria-expanded="false" aria-controls="collapsepage">
+              <i class="bi bi-building me-2"></i> Blocs
             </a>
             <!-- Submenu -->
             <ul class="nav collapse flex-column" id="collapsepage" data-bs-parent="#navbar-sidebar">
-              <li class="nav-item"> <a class="nav-link" href="admin-course-list.html">All Courses</a></li>
-              <li class="nav-item"> <a class="nav-link" href="admin-course-category.html">Course Category</a></li>
-              <li class="nav-item"> <a class="nav-link" href="admin-course-detail.html">Course Detail</a></li>
+              <li class="nav-item"> <a class="nav-link" routerLink="add_bloc"><i
+                class="bi bi-plus me-1"></i>Ajouter un bloc</a></li>
+              <li class="nav-item"> <a class="nav-link" routerLink="list-bloc">
+                <i class="bi bi-list me-1"></i> Liste Bloc</a></li>
+              <li class="nav-item"> <a class="nav-link" href="admin-course-detail.html">Course Detail</a>
+              </li>
             </ul>
           </li>
+
+          <li class="nav-item"> <a class="nav-link" href="admin-student-list.html"><i
+            class="fas fa-user-graduate fa-fw me-2"></i>Students</a></li>
+
 
           <!-- Menu item 3 -->
           <li class="nav-item"> <a class="nav-link" href="admin-student-list.html"><i class="fas fa-user-graduate fa-fw me-2"></i>Students</a></li>

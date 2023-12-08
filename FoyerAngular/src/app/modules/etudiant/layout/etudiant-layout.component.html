@@ -156,6 +156,8 @@
                 <!-- Dashboard menu -->
                 <div class="list-group list-group-dark list-group-borderless">
                   <a class="list-group-item" ><i class="fas fa-address-card fa-fw me-2"></i>Editer le profil</a>
+                  <li class="list-group-item"> <a class="nav-link" [routerLink]="'list-bloc-f/' + idFoyer">
+                    <i class="bi bi-list me-1"></i> Liste des Blocs</a></li>
                   <a class="list-group-item" ><i class="fas fa-city fa-fw me-2"></i>Liste des universités</a>
                   <a class="list-group-item" ><i class="fas fa-window-restore fa-fw me-2"></i>Liste des réservations</a>
                   <a class="list-group-item text-danger bg-danger-soft-hover" (click)="logout()" routerLink="/home"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Se déconnecter</a>

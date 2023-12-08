@@ -1,0 +1,49 @@
+<div class="container custumer-container my-5 mx-3">
+
+
+  <div class="card custumer-card">
+    <div class="mb-3">
+      <input type="text" class="form-control" placeholder="Search by Nom Bloc" [(ngModel)]="searchTerm" (keyup)="filterBlocs()" />
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">id Bloc</th>
+          <th scope="col">Nom Bloc</th>
+          <th scope="col">Capacité Bloc</th>
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let bloc of ListBlocs">
+          <th scope="row"> {{bloc.idBloc}} </th>
+          <td>{{bloc.nomBloc}}</td>
+          <td>{{bloc.capacityBloc}}</td>
+          <!-- <td>{{bloc.foyer}}</td> -->
+          <td>
+            <div class="custumer_action">
+              <i class="bi bi-trash-fill text-danger" (click)="deleteBloc(bloc.idBloc)"></i>
+              <button class="custumer_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                      [routerLink]="['/admin/bloc',bloc.idBloc]"><i
+                class="bi bi-pencil-fill text-mauve"></i></button>
+              <i class="bi bi-eye-fill"></i>
+            </div>
+          </td>
+       <!--   <td> <button *ngIf="bloc.idFoyer==null" type="button" class="btn btn-warning p-1 w-75 "
+                       (click)="affecter(bloc.idBloc)">Affecter chambre</button>
+            <button *ngIf="bloc.idFoyer!=null" disabled type="button"
+                    class="btn btn-primary p-1 w-75">Désaffectrer</button>
+          </td> -->
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+sudo
+
+
+
+</div>

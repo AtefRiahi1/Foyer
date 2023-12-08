@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./etudiant-layout.component.css']
 })
 export class EtudiantLayoutComponent {
+  idFoyer: string = '1'
   constructor() {
     this.loadScript('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js');
     this.loadScript('assets/vendor/tiny-slider/tiny-slider.js');
