@@ -8,6 +8,8 @@ import { ListFoyerComponent } from './views/foyer/list-foyer/list-foyer.componen
 import {UpdateReservationComponent} from "./views/reservation/update-reservation/update-reservation.component";
 import {ListReservationComponent} from "./views/reservation/list-reservation/list-reservation.component";
 import {AddReservationComponent} from "./views/reservation/add-reservation/add-reservation.component";
+import { ListUniversiteComponent } from '../admin/views/universite/list-universite/list-universite.component';
+import { ListUniversiteFrontComponent } from './views/universite/list-universite-front/list-universite-front.component';
 
 const routes: Routes = [
   { path: '', component: EtudiantLayoutComponent, children:[
@@ -17,8 +19,11 @@ const routes: Routes = [
     { path: ':idU/listfoyer', component: ListFoyerComponent } ,
       { path: 'reservations', component: ListReservationComponent},
       { path: 'addreservation', component: AddReservationComponent},
+      { path: 'listUniversitefront', component: ListUniversiteFrontComponent },
       { path: 'reservations/edit/:idreservation', component: UpdateReservationComponent }
-    ] }
+
+  ]}
+
 ];
 
 @NgModule({

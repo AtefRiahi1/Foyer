@@ -12,6 +12,8 @@ import { ListReservationComponent } from './views/reservation/list-reservation/l
 import { AddReservationComponent } from './views/reservation/add-reservation/add-reservation.component';
 import { UpdateReservationComponent } from './views/reservation/update-reservation/update-reservation.component';
 import { DeleteReservationComponent } from './views/reservation/delete-reservation/delete-reservation.component';
+import { ListUniversiteFrontComponent } from './views/universite/list-universite-front/list-universite-front.component';
+
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { DeleteReservationComponent } from './views/reservation/delete-reservati
     ListReservationComponent,
     AddReservationComponent,
     UpdateReservationComponent,
-    DeleteReservationComponent
+    DeleteReservationComponent,
+    ListUniversiteFrontComponent
+   
   ],
   imports: [
     CommonModule,

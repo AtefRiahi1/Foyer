@@ -12,22 +12,26 @@ import {ListReservationComponent} from "./views/reservation/list-reservation/lis
 import {AddReservationComponent} from "./views/reservation/add-reservation/add-reservation.component";
 import {StatReservationComponent} from "./views/reservation/stat-reservation/stat-reservation.component";
 import {UpdateReservationComponent} from "./views/reservation/update-reservation/update-reservation.component";
+import { ListUniversiteComponent } from './views/universite/list-universite/list-universite.component';
+import { AjouterUniversiteComponent } from './views/universite/ajouter-universite/ajouter-universite.component';
+import { UpdateUniversiteComponent } from './views/universite/update-universite/update-universite.component';
+
 
 const routes: Routes = [
   { path: '', component: AdminLayoutComponent, children:[
     { path: 'foyer', component: ListFoyerComponent },
     { path: 'foyer/addfoyer', component: AddFoyerComponent},
     { path: 'foyer/updatefoyer/:id', component: UpdateFoyerComponent},
-      /*{ path: 'admin-profile', component: AdminProfileComponent },
-      { path: 'list-university', component: ListReservationComponent },
-      { path: 'list-bloc-foyer', component: ListBlocFoyerComponent },*/
+      { path: 'universite', component: ListUniversiteComponent },
+      { path: 'universite/ajouter', component: AjouterUniversiteComponent },
+      { path: 'universite/update/:id', component: UpdateUniversiteComponent },
       { path: 'updateEtudiant/:id', component: UpdateEtudiantComponent },
       { path: 'addEtudiant', component: AddEtudiantComponent },
       { path: 'etudiants', component: ListEtudiantComponent},
       { path: 'reservations', component: ListReservationComponent },
       { path: 'addreservation', component: AddReservationComponent},
       { path: 'reservations/reservationsedit/:id', component: UpdateReservationComponent },
-      { path: 'statreservation', component: StatReservationComponent},
+      { path: 'statreservation', component: StatReservationComponent}
     ] }
 
 ];

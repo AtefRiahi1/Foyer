@@ -15,6 +15,7 @@ public class Universite implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idUniversite;
+    @Column(unique = true)
     private String nomUniversite;
     private String adresse;
     @JsonIgnore

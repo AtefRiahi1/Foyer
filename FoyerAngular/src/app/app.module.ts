@@ -12,13 +12,15 @@ import { Error404Component } from './home/views/error404/error404.component';
 import {AdminModule} from "./modules/admin/admin.module";
 import {EtudiantModule} from "./modules/etudiant/etudiant.module";
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SignInComponent,
     SignUpComponent,
-    Error404Component
+    Error404Component,
+ 
   ],
   imports: [
     BrowserModule,

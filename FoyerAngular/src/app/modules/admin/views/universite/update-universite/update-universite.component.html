@@ -1,0 +1,108 @@
+<section
+  class="p-0 d-flex align-items-center position-relative overflow-hidden"
+>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-6 m-auto">
+        <div class="row my-5">
+          <div class="col-sm-10 col-xl-8 m-auto">
+            <form
+              [formGroup]="updateForm"
+              (ngSubmit)="update()"
+              *ngIf="updateForm"
+            >
+              <div class="mb-4">
+                <label for="exampleInputNom" class="form-label"
+                  >Nom Universite</label
+                >
+                <div class="input-group input-group-lg">
+                  <span
+                    class="input-group-text bg-light rounded-start border-0 text-secondary px-3"
+                    ><i class="fas fa-home"></i
+                  ></span>
+                  <input
+                    type="text"
+                    class="form-control border-0 bg-light rounded-end ps-1"
+                    placeholder="Nom Universite"
+                    id="exampleInputNom"
+                    formControlName="nomUniversite"
+                  />
+                </div>
+              </div>
+              <div class="mb-4">
+                <label for="exampleInputCin" class="form-label">Adresse</label>
+                <div class="input-group input-group-lg">
+                  <span
+                    class="input-group-text bg-light rounded-start border-0 text-secondary px-3"
+                    ><i class="fas fa-university"></i
+                  ></span>
+                  <input
+                    type="text"
+                    class="form-control border-0 bg-light rounded-end ps-1"
+                    placeholder="adresse"
+                    id="exampleInputCin"
+                    formControlName="adresse"
+                  />
+                </div>
+              </div>
+
+              <br />
+
+              <div class="align-items-center mt-0">
+                <div class="d-grid">
+                  <button class="btn btn-primary mb-0" type="text">
+                    Modifier
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="p-0 d-flex align-items-center position-relative overflow-hidden">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-6 m-auto">
+        <div class="row my-5">
+          <div class="col-sm-10 col-xl-8 m-auto">
+            <form [formGroup]="updateForm" (ngSubmit)="update()" *ngIf="updateForm">
+              <div class="mb-4">
+                <label for="exampleInputNom" class="form-label">Nom Universite</label>
+                <div class="input-group input-group-lg">
+                  <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fa fa-university"></i></span>
+                  <input type="text" class="form-control border-0 bg-light rounded-end ps-1" placeholder="Nom Universite" id="exampleInputNom" formControlName="nomUniversite">
+                </div>
+                <div *ngIf="updateForm.controls.nomUniversite.invalid && (updateForm.controls.nomUniversite.dirty || updateForm.controls.nomUniversite.touched)" class="text-danger">
+                  <div *ngIf="updateForm.controls.nomUniversite.errors?.['required']">Le nom de l'université est requis.</div>
+                  <div *ngIf="updateForm.controls.nomUniversite.errors?.['minlength']">Le nom de l'université doit avoir au moins 3 caractères.</div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <label for="exampleInputCin" class="form-label">Adresse</label>
+                <div class="input-group input-group-lg">
+                  <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fa fa-map-marker"></i></span>
+                  <input type="text" class="form-control border-0 bg-light rounded-end ps-1" placeholder="Adresse" id="exampleInputCin" formControlName="adresse">
+                </div>
+                <div *ngIf="updateForm.controls.adresse.invalid && (updateForm.controls.adresse.dirty || updateForm.controls.adresse.touched)" class="text-danger">
+                  <div *ngIf="updateForm.controls.adresse.errors?.['required']">L'adresse est requise.</div>
+                  <div *ngIf="updateForm.controls.adresse.errors?.['minlength']">L'adresse doit avoir au moins 3 caractères.</div>
+                </div>
+              </div>
+
+              <div class="align-items-center mt-0">
+                <div class="d-grid">
+                  <button class="btn btn-primary mb-0" type="submit" [disabled]="!updateForm.valid">Modifier</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->

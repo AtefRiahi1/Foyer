@@ -42,12 +42,22 @@ public class IUniversiteServicesImp implements IUniversiteServices {
 
         return universitesNonAffectees;
     }
+    @Override
+    public Universite getUniversiteByNom(String nomUniversite) {
+        return universiteRepository.findByNomUniversiteContainingIgnoreCase(nomUniversite);
+    }
+
+    @Override
+    public void deleteUniversite(long idUniversite) {
+        universiteRepository.deleteById(idUniversite);
+    }
+
 
     @Override
     public Universite affecterFoyerAUniversite(Long idFoyer, String nomUniversite) {
         Foyer foyer = foyerRepository.findById(idFoyer).orElseThrow(()->new IllegalArgumentException("Ce foyer n'existe pas"));
 
-        Universite universite = universiteRepository.findByNomUniversite(nomUniversite);
+        Universite universite = universiteRepository.findByNomUniversiteContainingIgnoreCase(nomUniversite);
 
         universite.setFoyer(foyer);
         return universiteRepository.save(universite);

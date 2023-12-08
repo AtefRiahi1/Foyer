@@ -12,6 +12,10 @@ public interface IUniversiteServices {
 
     List<Universite> getUniversitesNonAffectees();
 
+    Universite getUniversiteByNom(String nomUniversite);
+
+    void deleteUniversite(long idUniversite);
+
     Universite affecterFoyerAUniversite(Long idFoyer, String nomUniversite);
     Universite desaffecterFoyerAUniversite(Long idUniversite);
 }

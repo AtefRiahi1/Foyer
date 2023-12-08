@@ -14,6 +14,9 @@ import { AddReservationComponent } from './views/reservation/add-reservation/add
 import { UpdateReservationComponent } from './views/reservation/update-reservation/update-reservation.component';
 import { DeleteReservationComponent } from './views/reservation/delete-reservation/delete-reservation.component';
 import { StatReservationComponent } from './views/reservation/stat-reservation/stat-reservation.component';
+import { AjouterUniversiteComponent } from './views/universite/ajouter-universite/ajouter-universite.component';
+import { ListUniversiteComponent } from './views/universite/list-universite/list-universite.component';
+import { UpdateUniversiteComponent } from './views/universite/update-universite/update-universite.component';
 
 
 @NgModule({
@@ -29,7 +32,10 @@ import { StatReservationComponent } from './views/reservation/stat-reservation/s
     AddReservationComponent,
     UpdateReservationComponent,
     DeleteReservationComponent,
-    StatReservationComponent
+    StatReservationComponent,
+    AjouterUniversiteComponent,
+    ListUniversiteComponent,
+    UpdateUniversiteComponent
   ],
   imports: [
     CommonModule,
