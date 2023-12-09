@@ -5,6 +5,11 @@ import Swal from "sweetalert2";
 import {Router} from "@angular/router";
 import {TypeChambre} from "../../../../../core/models/TypeChambre/type-chambre.enum";
 import {Chambre} from "../../../../../core/models/chambre/chambre";
+// @ts-ignore
+import pdfMake from "pdfmake/build/pdfmake";
+// @ts-ignore
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-list-reservation',
