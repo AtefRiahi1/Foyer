@@ -16,7 +16,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/bloc")
 @RequiredArgsConstructor
-@Slf4j
 @CrossOrigin("*")
 @Slf4j
 public class BlocController {
@@ -74,7 +73,7 @@ public class BlocController {
     }
     @GetMapping("/{idFoyer}/blocs")
     public List<Bloc> getBlocsByFoyer(@PathVariable Long idFoyer){
-        return blocService.getBlocsByFoyer(idFoyer);
+        return blocService.getBlocsByFoyer(idFoyer);}
     @GetMapping("/chambresNonAffectees")
     public List<Chambre> getChambresNonAffectees() {
         return blocService.getChambresNonAffectees();

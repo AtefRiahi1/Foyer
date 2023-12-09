@@ -19,7 +19,7 @@ export class AffectationBLocChambreComponent implements OnInit { //implements On
     private router: Router,
     private actR: ActivatedRoute
   ) {
-    
+
     this.idBloc = 0;
   }
 
@@ -57,7 +57,7 @@ export class AffectationBLocChambreComponent implements OnInit { //implements On
       () => {
 
         alert('Chambres affectées avec succès au bloc!');
-        this.router.navigate(['/admin/chambre']);
+        this.router.navigate(['/admin/list-bloc']);
       },
       (erreur) => {
         console.error('Erreur lors de l\'affectation des chambres au bloc', erreur);

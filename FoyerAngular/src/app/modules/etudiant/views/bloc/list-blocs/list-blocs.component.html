@@ -13,6 +13,7 @@
           <p class="card-text">Associee Foyer: {{ foyerListe.nomFoyer }}</p>
 
           <button class="badge rounded-pill text-bg-info w-75 "(click)="detailsById(bloc.idBloc, idFoyer)">Voir les détails</button>
+          <button class="btn btn-blue" [routerLink]="['/etudiant',bloc.idBloc,'listChambre']">Afficher la liste des chambres</button>
         </div>
       </div>
     </div>

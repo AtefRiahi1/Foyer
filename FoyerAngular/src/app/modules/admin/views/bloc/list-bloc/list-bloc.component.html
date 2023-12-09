@@ -5,6 +5,7 @@
     <div class="mb-3">
       <input type="text" class="form-control" placeholder="Search by Nom Bloc" [(ngModel)]="searchTerm" (keyup)="filterBlocs()" />
     </div>
+
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
@@ -28,6 +29,7 @@
                       [routerLink]="['/admin/bloc',bloc.idBloc]"><i
                 class="bi bi-pencil-fill text-mauve"></i></button>
               <i class="bi bi-eye-fill"></i>
+              <button class="btn btn-success" [routerLink]="['/admin/chambre',bloc.idBloc,'affecterChambre']">Chambres non affectées</button>
             </div>
           </td>
        <!--   <td> <button *ngIf="bloc.idFoyer==null" type="button" class="btn btn-warning p-1 w-75 "
