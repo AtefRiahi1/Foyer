@@ -82,9 +82,9 @@ export class ListReservationComponent {
       });
   }*/
 
-  ajouterReservation() {
+  ajouterReservation(id :string) {
     const cinEtudiant = this.userconnect.cin;
-    this.reservationService.ajouterReservation("1",cinEtudiant)
+    this.reservationService.ajouterReservation(id,cinEtudiant)
       .subscribe((data) => {
         const Toast = Swal.mixin({
           toast: true,
