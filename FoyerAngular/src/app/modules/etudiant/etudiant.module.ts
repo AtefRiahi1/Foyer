@@ -15,7 +15,7 @@ import { DeleteReservationComponent } from './views/reservation/delete-reservati
     ListReservationComponent,
     AddReservationComponent,
     UpdateReservationComponent,
-    DeleteReservationComponent
+    DeleteReservationComponent,
   ],
   imports: [
     CommonModule,

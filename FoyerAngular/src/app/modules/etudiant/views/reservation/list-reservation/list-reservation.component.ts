@@ -5,7 +5,11 @@ import Swal from "sweetalert2";
 import {Router} from "@angular/router";
 import {TypeChambre} from "../../../../../core/models/TypeChambre/type-chambre.enum";
 import {Chambre} from "../../../../../core/models/chambre/chambre";
-
+// @ts-ignore
+import pdfMake from "pdfmake/build/pdfmake";
+// @ts-ignore
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 @Component({
   selector: 'app-list-reservation',
   templateUrl: './list-reservation.component.html',
@@ -102,6 +106,67 @@ export class ListReservationComponent {
         this.ngOnInit();
       });
   }
+
+
+  // {img : "http://localhost:9090/auth/"+user.image},
+  export(): void {
+    const user = this.userconnect;
+    const rese = this.reservation;
+
+    const tableData = [
+      [{ text: 'Nom et Prenom', bold: true }, `${user.nom} ${user.prenom}`],
+      [{ text: 'Date de Naissance', bold: true }, user.dateNaissance],
+      [{ text: 'Ecole', bold: true }, user.ecole],
+      [{ text: 'Carte Cin', bold: true }, user.cin],
+      [{ text: 'Email', bold: true }, user.email]
+    ];
+
+    const docDefinition = {
+      content: [
+        {
+          columns: [
+            {
+              width: 'auto',
+              text: 'Reservation',
+              style: 'header'
+            },
+          ]
+        },
+        {
+
+          text: `Reservation ID: ${rese.idReservation}`,
+          style: 'subheader'
+        },
+        {
+          text: `Year of Reservation: ${rese.anneeUniversitaire}`,
+          style: 'subheader',
+          margin: [0, 10, 0, 20]
+        },
+        {
+          table: {
+            widths: ['30%', '70%'],
+            body: tableData
+          },
+          margin: [0, 0, 0, 20]
+        }
+      ],
+      styles: {
+        header: {
+          fontSize: 24,
+          bold: true,
+          margin: [0, 0, 0, 10]
+        },
+        subheader: {
+          fontSize: 16,
+          bold: true,
+          margin: [0, 10, 0, 5]
+        }
+      }
+    };
+
+    pdfMake.createPdf(docDefinition).download('reservation_'+this.reservation.idReservation+'.pdf');
+  }
+
 
 
 }

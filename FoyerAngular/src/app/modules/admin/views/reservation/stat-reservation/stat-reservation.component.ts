@@ -21,5 +21,6 @@ export class StatReservationComponent implements OnInit{
       this.validCount = reservations.filter(reservation => reservation.estValide).length;
       this.invalidCount = reservations.filter(reservation => !reservation.estValide).length;
     });
+
   }
 }

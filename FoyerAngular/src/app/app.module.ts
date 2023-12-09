@@ -11,6 +11,7 @@ import { SignUpComponent } from './home/views/sign-up/sign-up.component';
 import { Error404Component } from './home/views/error404/error404.component';
 import {AdminModule} from "./modules/admin/admin.module";
 import {EtudiantModule} from "./modules/etudiant/etudiant.module";
+import {StatReservationComponent} from "./modules/admin/views/reservation/stat-reservation/stat-reservation.component";
 
 @NgModule({
   declarations: [
