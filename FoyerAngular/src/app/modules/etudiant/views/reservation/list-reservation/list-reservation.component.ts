@@ -111,6 +111,7 @@ export class ListReservationComponent {
   // {img : "http://localhost:9090/auth/"+user.image},
   export(): void {
     const user = this.userconnect;
+    
     const rese = this.reservation;
 
     const tableData = [
