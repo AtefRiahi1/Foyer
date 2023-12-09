@@ -17,6 +17,7 @@ import { ListUniversiteFrontComponent } from './views/universite/list-universite
 import { DetailsBlocComponent } from './views/bloc/details-bloc/details-bloc.component';
 import { AffecterBlocFoyerComponent } from './views/bloc/affecter-bloc-foyer/affecter-bloc-foyer.component';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { ListChambreComponent } from './views/chambre/list-chambre/list-chambre.component';
 
 
 @NgModule({
@@ -32,8 +33,8 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
     DeleteReservationComponent,
     ListUniversiteFrontComponent,
     DetailsBlocComponent,
-    AffecterBlocFoyerComponent
-
+    AffecterBlocFoyerComponent,
+    ListChambreComponent
   ],
     imports: [
         CommonModule,

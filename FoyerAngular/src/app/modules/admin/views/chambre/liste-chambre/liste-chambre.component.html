@@ -1,0 +1,86 @@
+<div class="container">
+    <h1 appTest>Liste des Chambres</h1>
+    <br>
+    <button class="btn btn-success" routerLink="addChambre">Ajouter Chambre</button>
+    <br><br>
+    <br>
+    <button class="btn btn-success" routerLink=":idBloc/affecterChambre">Chambres non affectées</button>
+    <br><br>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="main-box clearfix">
+            <form>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Rechercher par catégorie"
+                    name="search"
+                  />
+                </div>
+              </form>
+              
+            <div class="table-responsive">
+              <table class="table user-list">
+                <thead>
+                  <tr>
+
+                    <th><span>Image de la chambre</span></th>
+                    <th><span>Numero de la chambre</span></th>
+                    <th><span>Type</span></th>
+                    <th>&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let item of listChambre">
+                    <tr>
+                        <td>
+                          
+                          <img src="http://localhost:9090/auth/{{item.image}}"  alt="" style="height: 50px" width="70px">
+                        </td>
+                        <td>
+                          <a href="#" class="user-link">{{item.numeroChambre}} </a>
+                        </td>
+                        <td>{{item.typeC}}</td>
+                       
+                        <td style="width: 20%;">
+                          <a href="#" class="table-link">
+                            <span class="fa-stack">
+                              <i class="fa fa-square fa-stack-2x"></i>
+                              <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                            </span>
+                          </a>
+                          <a  class="table-link" [routerLink]="['updatechambre',item.idChambre]">
+                            <span class="fa-stack">
+                              <i class="fa fa-square fa-stack-2x"></i>
+                              <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                            </span>
+                          </a>
+                          
+                          <!-- Utilisez *ngIf pour rendre le bouton "Delete" inactif si item.accountCategory est "Admin" -->
+                          <button class="table-link danger"   (click)="delete(item.idChambre)">
+                            <span class="fa-stack">
+                              <i class="fa fa-square fa-stack-2x"  ></i>
+                              <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                            </span>
+                          </button>
+                        </td>
+                      </tr>
+                </tbody>
+              </table>
+            </div>
+            <ul class="pagination pull-right">
+              <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>

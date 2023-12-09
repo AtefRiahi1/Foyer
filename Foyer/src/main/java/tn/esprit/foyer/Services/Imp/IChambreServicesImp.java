@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.foyer.Entities.Chambre;
 import tn.esprit.foyer.Entities.TypeChambre;
+import tn.esprit.foyer.Repositories.IBlocRepository;
 import tn.esprit.foyer.Repositories.IChambreRepository;
 import tn.esprit.foyer.Services.IChambreServices;
 
@@ -13,8 +14,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class IChambreServicesImp implements IChambreServices {
-
     private final IChambreRepository chambreRepository;
+    private final IBlocRepository blocRepository;
 
 
     @Override
@@ -40,6 +41,25 @@ public class IChambreServicesImp implements IChambreServices {
     @Override
     public List<Chambre> getChambresParBlocEtType(Long idBloc, TypeChambre typeC) {
         return chambreRepository.getChambresParBlocEtType(idBloc, typeC);  //Solution 1
+    }
+
+
+
+    /*@Override
+    public Chambre getChambreParBloc(long idBloc) {
+
+            return blocRepository.findChambresByBlocId(idBloc);
+    }*/
+
+
+    @Override
+    public void deleteChambre(Long idChambre) {
+        chambreRepository.deleteById(idChambre);
+    }
+
+    @Override
+    public List<Chambre> getChambresByBlocId(Long idBloc) {
+        return chambreRepository.findByBlocIdBloc(idBloc);
     }
 
 }

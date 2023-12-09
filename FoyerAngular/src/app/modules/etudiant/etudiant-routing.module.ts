@@ -13,6 +13,7 @@ import { ListUniversiteFrontComponent } from './views/universite/list-universite
 import { ListBlocsComponent } from './views/bloc/list-blocs/list-blocs.component';
 import { DetailsBlocComponent } from './views/bloc/details-bloc/details-bloc.component';
 import { AffecterBlocFoyerComponent } from './views/bloc/affecter-bloc-foyer/affecter-bloc-foyer.component';
+import { ListChambreComponent } from './views/chambre/list-chambre/list-chambre.component';
 
 const routes: Routes = [
   { path: '', component: EtudiantLayoutComponent, children:[
@@ -29,10 +30,10 @@ const routes: Routes = [
       {
         path: 'affecter_foyer_bloc/:idbloc',
         component: AffecterBlocFoyerComponent
-      }
+      },
+      { path: ':idBloc/listChambre', component: ListChambreComponent } 
 
   ]}];
-
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -17,6 +17,10 @@ import { StatReservationComponent } from './views/reservation/stat-reservation/s
 import { AjouterUniversiteComponent } from './views/universite/ajouter-universite/ajouter-universite.component';
 import { ListUniversiteComponent } from './views/universite/list-universite/list-universite.component';
 import { UpdateUniversiteComponent } from './views/universite/update-universite/update-universite.component';
+import { AddChambreComponent } from './views/chambre/add-chambre/add-chambre.component';
+import { ListeChambreComponent } from './views/chambre/liste-chambre/liste-chambre.component';
+import { UpdateChambreComponent } from './views/chambre/update-chambre/update-chambre.component';
+import { AffectationBLocChambreComponent } from './views/chambre/affectation-bloc-chambre/affectation-bloc-chambre.component';
 
 
 @NgModule({
@@ -35,13 +39,18 @@ import { UpdateUniversiteComponent } from './views/universite/update-universite/
     StatReservationComponent,
     AjouterUniversiteComponent,
     ListUniversiteComponent,
-    UpdateUniversiteComponent
+    UpdateUniversiteComponent,
+    AddChambreComponent,
+    ListeChambreComponent,
+    UpdateChambreComponent,
+    AffectationBLocChambreComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule
-  ]
+  
+  ],
 })
 export class AdminModule { }

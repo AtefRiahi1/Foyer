@@ -2,6 +2,7 @@ package tn.esprit.foyer.Repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import tn.esprit.foyer.Entities.Bloc;
 import tn.esprit.foyer.Entities.Chambre;
 import tn.esprit.foyer.Entities.TypeChambre;
@@ -21,4 +22,11 @@ public interface IChambreRepository extends JpaRepository<Chambre, Long>  {
 
     Chambre findByReservationsContains(Reservation reservation);
     List<Chambre> findChambreByBloc(Bloc bloc);
+
+    /*@Query( value = "SELECT * FROM chambre c " +
+            "JOIN bloc b " +
+            "ON c.bloc_id_bloc =b.id_bloc " +
+            "WHERE b.id_bloc= :idBloc" ,nativeQuery = true)
+    List<Chambre> getChambreByIdBloc(@Param("idBloc") long idBloc);*/
+    List<Chambre> findByBlocIdBloc (Long idBloc);
 }

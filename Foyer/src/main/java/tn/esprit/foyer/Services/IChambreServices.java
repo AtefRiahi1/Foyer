@@ -13,4 +13,6 @@ public interface IChambreServices {
     Chambre getChambreById(Long idChambre);
 
     List<Chambre> getChambresParBlocEtType (Long idBloc, TypeChambre typeC) ;
+    void deleteChambre(Long idChambre);
+    List<Chambre> getChambresByBlocId(Long idBloc);
 }

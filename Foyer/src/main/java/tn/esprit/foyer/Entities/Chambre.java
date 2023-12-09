@@ -17,7 +17,9 @@ public class Chambre implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idChambre;
+    @Column(unique = true)
     private long numeroChambre;
+    String image;
     @Enumerated(EnumType.STRING)
     private TypeChambre typeC;
     @OneToMany /* chambre 1-->* reservation */

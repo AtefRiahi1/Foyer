@@ -1,6 +1,7 @@
 package tn.esprit.foyer.Services;
 
 import tn.esprit.foyer.Entities.Bloc;
+import tn.esprit.foyer.Entities.Chambre;
 
 
 import java.util.List;
@@ -17,4 +18,5 @@ public interface IBlocServices {
     public void testschedulure();
 
     List<Bloc> getBlocsByFoyer(Long idFoyer);
+    List<Chambre> getChambresNonAffectees();
 }

@@ -10,7 +10,9 @@ import tn.esprit.foyer.Entities.Foyer;
 import tn.esprit.foyer.Repositories.*;
 import tn.esprit.foyer.Services.IBlocServices;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 
@@ -83,5 +85,25 @@ public class IBlocServicesImp implements IBlocServices {
 
     public List<Bloc> getBlocsByFoyer(Long idFoyer) {
         return blocRepository.findByFoyerIdFoyer(idFoyer);
-    }
+        }
+    /*@Override
+    public List<Chambre> getChambresNonAffectees() {
+        List<Chambre> chambres = chambreRepository.findAll();
+        List<Chambre> ChambresNONaffectees = chambres.stream()
+                .filter(chambre -> !blocRepository.existsByChambres(chambres))
+                .collect(Collectors.toList());
+
+        return ChambresNONaffectees;
+    }*/
+    @Override
+    public List<Chambre> getChambresNonAffectees() {
+        List<Chambre> chambres = chambreRepository.findAll();
+
+        List<Chambre> chambresNonAffectees = chambres.stream()
+                .filter(chambre -> !blocRepository.existsByChambresIn(Collections .singletonList(chambre)))
+                .collect(Collectors.toList());
+
+        return chambresNonAffectees;
+    
+}
 }
