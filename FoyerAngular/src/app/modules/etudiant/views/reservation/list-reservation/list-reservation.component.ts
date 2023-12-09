@@ -59,57 +59,8 @@ export class ListReservationComponent {
     });
   }
 
-  /*onBlocChange(event: Event) {
-    const selectElement = event.target as HTMLSelectElement;
-    this.idBlocSelectionne = Number(selectElement.value);
-    if (this.idBlocSelectionne) {
-      this.getChambresParBlocEtType();
-    }
-  }*/
-
-  /*onTypeChange(event: Event) {
-    const selectElement = event.target as HTMLSelectElement;
-    this.typeChambreSelectionne = selectElement.value as TypeChambre;
-    if (this.typeChambreSelectionne) {
-      this.getChambresParBlocEtType();
-    }
-  }*/
-
-  /*getChambresParBlocEtType() {
-    this.chambreService.getChambresParBlocEtType(this.idBlocSelectionne, this.typeChambreSelectionne)
-      .subscribe(chambres => {
-        this.chambres = chambres;
-      });
-  }*/
-
-  ajouterReservation(id :string) {
-    const cinEtudiant = this.userconnect.cin;
-    this.reservationService.ajouterReservation(id,cinEtudiant)
-      .subscribe((data) => {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 2000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          }
-        });
-
-        Toast.fire({
-          icon: "success",
-          title: "Réservation effectuée avec succès"
-        });
-
-        this.ngOnInit();
-      });
-  }
-
-
   // {img : "http://localhost:9090/auth/"+user.image},
-  export(): void {
+  exportpdf(): void {
     const user = this.userconnect;
 
     const rese = this.reservation;
@@ -167,6 +118,57 @@ export class ListReservationComponent {
 
     pdfMake.createPdf(docDefinition).download('reservation_'+this.reservation.idReservation+'.pdf');
   }
+
+
+
+  /*onBlocChange(event: Event) {
+    const selectElement = event.target as HTMLSelectElement;
+    this.idBlocSelectionne = Number(selectElement.value);
+    if (this.idBlocSelectionne) {
+      this.getChambresParBlocEtType();
+    }
+  }*/
+
+  /*onTypeChange(event: Event) {
+    const selectElement = event.target as HTMLSelectElement;
+    this.typeChambreSelectionne = selectElement.value as TypeChambre;
+    if (this.typeChambreSelectionne) {
+      this.getChambresParBlocEtType();
+    }
+  }*/
+
+  /*getChambresParBlocEtType() {
+    this.chambreService.getChambresParBlocEtType(this.idBlocSelectionne, this.typeChambreSelectionne)
+      .subscribe(chambres => {
+        this.chambres = chambres;
+      });
+  }*/
+
+  ajouterReservation(id :string) {
+    const cinEtudiant = this.userconnect.cin;
+    this.reservationService.ajouterReservation(id,cinEtudiant)
+      .subscribe((data) => {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        });
+
+        Toast.fire({
+          icon: "success",
+          title: "Réservation effectuée avec succès"
+        });
+
+        this.ngOnInit();
+      });
+  }
+
 
 
 
