@@ -111,11 +111,11 @@ export class ListReservationComponent {
   // {img : "http://localhost:9090/auth/"+user.image},
   export(): void {
     const user = this.userconnect;
-    
+
     const rese = this.reservation;
 
     const tableData = [
-      [{ text: 'Nom et Prenom', bold: true }, `${user.nom} ${user.prenom}`],
+      [{ text: 'Nom et Prenom ', bold: true }, `${user.nom} ${user.prenom}`],
       [{ text: 'Date de Naissance', bold: true }, user.dateNaissance],
       [{ text: 'Ecole', bold: true }, user.ecole],
       [{ text: 'Carte Cin', bold: true }, user.cin],
