@@ -1,7 +1,7 @@
 <div class="card border bg-transparent rounded-3">
   <div class="card-header bg-transparent d-sm-flex justify-content-sm-between align-items-center border-bottom">
     <h3 class="mb-0">Liste des réservations</h3>
-    <button type="submit" (click)="ajouterReservation()" class="btn btn-success btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Ajouter réservation">
+    <button type="submit" (click)="ajouterReservation('1')" class="btn btn-success btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Ajouter réservation">
       <i class="fas fa-arrow-up"></i>
     </button>
     <a href="#" [routerLink]="['/etudiant/addreservation']" class="btn btn-sm btn-primary-soft mb-0" data-bs-toggle="modal" data-bs-target="#addNewcard">Ajouter réservation</a>
@@ -29,6 +29,9 @@
               <div class="d-flex justify-content-center gap-3">
                 <button type="submit" (click)="annulerReservation()" class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Annuler réservation">
                   <i class="fas fa-ban"></i>
+                </button>
+                <button type="submit" (click)="exportpdf()" class="btn btn-info btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="pdf réservation">
+                  <i class="fas fa-upload"></i>
                 </button>
               </div>
             </div>

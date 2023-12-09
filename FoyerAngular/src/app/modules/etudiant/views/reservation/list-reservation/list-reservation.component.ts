@@ -55,6 +55,68 @@ export class ListReservationComponent {
     });
   }
 
+  // {img : "http://localhost:9090/auth/"+user.image},
+  exportpdf(): void {
+    const user = this.userconnect;
+
+    const rese = this.reservation;
+
+    const tableData = [
+      [{ text: 'Nom et Prenom ', bold: true }, `${user.nom} ${user.prenom}`],
+      [{ text: 'Date de Naissance', bold: true }, user.dateNaissance],
+      [{ text: 'Ecole', bold: true }, user.ecole],
+      [{ text: 'Carte Cin', bold: true }, user.cin],
+      [{ text: 'Email', bold: true }, user.email]
+    ];
+
+    const docDefinition = {
+      content: [
+        {
+          columns: [
+            {
+              width: 'auto',
+              text: 'Reservation',
+              style: 'header'
+            },
+          ]
+        },
+        {
+
+          text: `Reservation ID: ${rese.idReservation}`,
+          style: 'subheader'
+        },
+        {
+          text: `Year of Reservation: ${rese.anneeUniversitaire}`,
+          style: 'subheader',
+          margin: [0, 10, 0, 20]
+        },
+        {
+          table: {
+            widths: ['30%', '70%'],
+            body: tableData
+          },
+          margin: [0, 0, 0, 20]
+        }
+      ],
+      styles: {
+        header: {
+          fontSize: 24,
+          bold: true,
+          margin: [0, 0, 0, 10]
+        },
+        subheader: {
+          fontSize: 16,
+          bold: true,
+          margin: [0, 10, 0, 5]
+        }
+      }
+    };
+
+    pdfMake.createPdf(docDefinition).download('reservation_'+this.reservation.idReservation+'.pdf');
+  }
+
+
+
   /*onBlocChange(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
     this.idBlocSelectionne = Number(selectElement.value);
@@ -78,9 +140,9 @@ export class ListReservationComponent {
       });
   }*/
 
-  ajouterReservation() {
+  ajouterReservation(id :string) {
     const cinEtudiant = this.userconnect.cin;
-    this.reservationService.ajouterReservation("1",cinEtudiant)
+    this.reservationService.ajouterReservation(id,cinEtudiant)
       .subscribe((data) => {
         const Toast = Swal.mixin({
           toast: true,
