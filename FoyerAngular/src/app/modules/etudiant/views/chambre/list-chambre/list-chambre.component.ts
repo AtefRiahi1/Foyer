@@ -41,6 +41,12 @@ export class ListChambreComponent implements OnInit{
         }
       );
     });
+
+    const idEtudiant = this.userconnect.id;
+    this.reservationService.getCurrentReservationByEtudiantId(idEtudiant).subscribe((data) => {
+      this.reservation = data;
+    });
+
   }
   ajouterReservation(id :string) {
     const cinEtudiant = this.userconnect.cin;

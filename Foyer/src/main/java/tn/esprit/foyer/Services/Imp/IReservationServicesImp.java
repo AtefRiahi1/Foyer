@@ -109,7 +109,7 @@ public class IReservationServicesImp implements IReservationServices {
     }
 
     @Transactional
-    @Scheduled(cron = "0 0 0 2 6 *") // À minuit, le 2 juin de chaque année
+    @Scheduled(cron = "0 0 0 31 12 *") // À minuit, le 2 juin de chaque année
     public void annulerToutesLesReservationsAutomatiquement() {
         List<Reservation> reservationsValides = reservationRepository.findAllByEstValide(true);
 

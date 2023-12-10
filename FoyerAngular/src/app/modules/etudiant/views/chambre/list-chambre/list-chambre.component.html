@@ -24,7 +24,7 @@
           <h5 class="card-title">Chambre {{ i + 1 }}</h5>
           <p class="card-text">Numéro de Chambre: {{ chambre.numeroChambre }}</p>
           <p class="card-text">Type de Chambre: {{ chambre.typeC }}</p>
-          <button class="btn btn-outline-dark" (click)="ajouterReservation(chambre.idChambre.toString())">Réserver</button>
+          <button class="btn btn-outline-dark" [disabled]="reservation" (click)="ajouterReservation(chambre.idChambre.toString())">Réserver</button>
         </div>
       </div>
     </div>

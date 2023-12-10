@@ -39,11 +39,10 @@
             <ul class="nav collapse flex-column" id="collapsepage" data-bs-parent="#navbar-sidebar">
               <li class="nav-item"> <a class="nav-link" routerLink="/admin/reservations">List Reservation</a></li>
               <li class="nav-item"> <a class="nav-link" routerLink="/admin/addreservation">Ajouter Resrvation</a></li>
-              <li class="nav-item"> <a class="nav-link" routerLink="/admin/statreservation">Statistique</a></li>
             </ul>
           </li>
           <!-- Title -->
-         
+
         </ul>
         <!-- Sidebar menu end -->
 
@@ -108,20 +107,13 @@
 
               <!-- Profile dropdown START -->
               <li class="nav-item ms-2 ms-md-3 dropdown">
-                <!-- Avatar -->
-                <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img class="avatar-img rounded-circle" src="http://localhost:9090/auth/{{userconnect.image}}" alt="avatar">
-                </a>
+
 
                 <!-- Profile dropdown START -->
                 <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
                   <!-- Profile info -->
                   <li class="px-3">
                     <div class="d-flex align-items-center">
-                      <!-- Avatar -->
-                      <div class="avatar me-3 mb-3">
-                        <img class="avatar-img rounded-circle shadow" src="http://localhost:9090/auth/{{userconnect.image}}" alt="avatar">
-                      </div>
                       <div>
                         <a class="h6 mt-2 mt-sm-0" href="#">{{userconnect.nom}} {{userconnect.prenom}}</a>
                         <p class="small m-0">{{userconnect.email}}</p>
